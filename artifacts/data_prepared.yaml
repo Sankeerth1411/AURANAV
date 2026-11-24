@@ -1,0 +1,39 @@
+names:
+- bad road
+- bench
+- bicycle
+- bird
+- bollard
+- bus
+- car
+- cat
+- crosswalk
+- dog
+- down stairs
+- fence barrier
+- fire hydrant
+- motorcycle
+- parking meter
+- person
+- pole
+- pothole
+- scooter
+- stairs
+- stop sign
+- traffic cone
+- traffic light
+- trash bin
+- tree
+- truck
+- up stairs
+nc: 27
+path: C:\Users\AI-DS-02\Downloads\auranav\auranav\data\raw
+roboflow:
+  license: CC BY 4.0
+  project: merge_final-iixxm-huf72
+  url: https://universe.roboflow.com/sankeerth-rajoli-sankeerth/merge_final-iixxm-huf72/dataset/2
+  version: 2
+  workspace: sankeerth-rajoli-sankeerth
+test: test/images
+train: train/images
+val: valid/images

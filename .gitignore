@@ -1,0 +1,71 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Dataset
+data/
+datasets/
+
+# Model weights and checkpoints
+*.pt
+*.pth
+*.onnx
+*.engine
+artifacts/weights/
+runs/
+
+# Logs and temporary files
+*.log
+logs/
+temp/
+tmp/
+
+# Test videos and generated media
+tests/*.mp4
+tests/*.avi
+tests/*.mov
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Generated results
+artifacts/logs/
+
+# Additional virtual environments
+.venv_college/
+venv_linux/
+
+# Large videos and archives
+*.mp4
+*.avi
+*.mov
+*.zip
+
+# Software installers
+*.exe
+*.msi
+*.msix
+
+# Generated prediction images
+known_cat_prediction.jpg
+live_cat_prediction.jpg
+live_cat_test.jpg
+unseen_cat_prediction.jpg
+

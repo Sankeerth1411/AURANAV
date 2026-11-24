@@ -1,0 +1,266 @@
+{
+  "dataset_path": "data\\detection",
+  "num_classes": 27,
+  "classes": [
+    "bad road",
+    "bench",
+    "bicycle",
+    "bird",
+    "bollard",
+    "bus",
+    "car",
+    "cat",
+    "crosswalk",
+    "dog",
+    "down stairs",
+    "fence barrier",
+    "fire hydrant",
+    "motorcycle",
+    "parking meter",
+    "person",
+    "pole",
+    "pothole",
+    "scooter",
+    "stairs",
+    "stop sign",
+    "traffic cone",
+    "traffic light",
+    "trash bin",
+    "tree",
+    "truck",
+    "up stairs"
+  ],
+  "splits": {
+    "train": {
+      "split": "train",
+      "exists": true,
+      "images_dir": "data\\detection\\train\\images",
+      "labels_dir": "data\\detection\\train\\labels",
+      "num_images": 3220,
+      "num_labels": 3220,
+      "label_errors": [],
+      "missing_labels": [],
+      "class_counts": {
+        "24": 450,
+        "6": 961,
+        "16": 348,
+        "11": 83,
+        "4": 1296,
+        "8": 871,
+        "15": 747,
+        "14": 118,
+        "13": 204,
+        "22": 655,
+        "1": 169,
+        "18": 419,
+        "23": 439,
+        "5": 117,
+        "25": 51,
+        "21": 105,
+        "2": 153,
+        "12": 116,
+        "26": 87,
+        "20": 86,
+        "10": 180,
+        "0": 284,
+        "17": 783,
+        "19": 36,
+        "9": 45,
+        "7": 31,
+        "3": 33
+      }
+    },
+    "valid": {
+      "split": "valid",
+      "exists": true,
+      "images_dir": "data\\detection\\valid\\images",
+      "labels_dir": "data\\detection\\valid\\labels",
+      "num_images": 920,
+      "num_labels": 920,
+      "label_errors": [],
+      "missing_labels": [],
+      "class_counts": {
+        "24": 129,
+        "11": 33,
+        "16": 106,
+        "8": 286,
+        "4": 413,
+        "15": 158,
+        "22": 193,
+        "6": 256,
+        "1": 35,
+        "2": 24,
+        "21": 50,
+        "5": 24,
+        "25": 14,
+        "13": 54,
+        "26": 19,
+        "17": 154,
+        "10": 58,
+        "12": 42,
+        "0": 76,
+        "19": 11,
+        "18": 119,
+        "20": 21,
+        "7": 13,
+        "23": 120,
+        "9": 5,
+        "14": 40,
+        "3": 11
+      }
+    },
+    "test": {
+      "split": "test",
+      "exists": true,
+      "images_dir": "data\\detection\\test\\images",
+      "labels_dir": "data\\detection\\test\\labels",
+      "num_images": 460,
+      "num_labels": 460,
+      "label_errors": [],
+      "missing_labels": [],
+      "class_counts": {
+        "16": 51,
+        "8": 130,
+        "4": 209,
+        "24": 60,
+        "15": 94,
+        "23": 81,
+        "11": 18,
+        "2": 20,
+        "20": 9,
+        "6": 110,
+        "21": 25,
+        "22": 94,
+        "5": 17,
+        "25": 12,
+        "10": 25,
+        "0": 29,
+        "1": 29,
+        "17": 129,
+        "18": 50,
+        "26": 9,
+        "12": 12,
+        "13": 25,
+        "19": 4,
+        "7": 5,
+        "9": 2,
+        "14": 20,
+        "3": 5
+      }
+    }
+  },
+  "label_errors": [],
+  "missing_labels": [],
+  "class_distribution": {
+    "24": {
+      "name": "tree",
+      "count": 639
+    },
+    "6": {
+      "name": "car",
+      "count": 1327
+    },
+    "16": {
+      "name": "pole",
+      "count": 505
+    },
+    "11": {
+      "name": "fence barrier",
+      "count": 134
+    },
+    "4": {
+      "name": "bollard",
+      "count": 1918
+    },
+    "8": {
+      "name": "crosswalk",
+      "count": 1287
+    },
+    "15": {
+      "name": "person",
+      "count": 999
+    },
+    "14": {
+      "name": "parking meter",
+      "count": 178
+    },
+    "13": {
+      "name": "motorcycle",
+      "count": 283
+    },
+    "22": {
+      "name": "traffic light",
+      "count": 942
+    },
+    "1": {
+      "name": "bench",
+      "count": 233
+    },
+    "18": {
+      "name": "scooter",
+      "count": 588
+    },
+    "23": {
+      "name": "trash bin",
+      "count": 640
+    },
+    "5": {
+      "name": "bus",
+      "count": 158
+    },
+    "25": {
+      "name": "truck",
+      "count": 77
+    },
+    "21": {
+      "name": "traffic cone",
+      "count": 180
+    },
+    "2": {
+      "name": "bicycle",
+      "count": 197
+    },
+    "12": {
+      "name": "fire hydrant",
+      "count": 170
+    },
+    "26": {
+      "name": "up stairs",
+      "count": 115
+    },
+    "20": {
+      "name": "stop sign",
+      "count": 116
+    },
+    "10": {
+      "name": "down stairs",
+      "count": 263
+    },
+    "0": {
+      "name": "bad road",
+      "count": 389
+    },
+    "17": {
+      "name": "pothole",
+      "count": 1066
+    },
+    "19": {
+      "name": "stairs",
+      "count": 51
+    },
+    "9": {
+      "name": "dog",
+      "count": 52
+    },
+    "7": {
+      "name": "cat",
+      "count": 49
+    },
+    "3": {
+      "name": "bird",
+      "count": 49
+    }
+  },
+  "issues": [],
+  "passed": true
+}

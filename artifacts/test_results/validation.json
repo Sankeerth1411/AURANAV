@@ -1,0 +1,3561 @@
+{
+  "dataset_path": "data\\raw",
+  "num_classes": 27,
+  "classes": [
+    "bad road",
+    "bench",
+    "bicycle",
+    "bird",
+    "bollard",
+    "bus",
+    "car",
+    "cat",
+    "crosswalk",
+    "dog",
+    "down stairs",
+    "fence barrier",
+    "fire hydrant",
+    "motorcycle",
+    "parking meter",
+    "person",
+    "pole",
+    "pothole",
+    "scooter",
+    "stairs",
+    "stop sign",
+    "traffic cone",
+    "traffic light",
+    "trash bin",
+    "tree",
+    "truck",
+    "up stairs"
+  ],
+  "splits": {
+    "train": {
+      "split": "train",
+      "exists": true,
+      "images_dir": "data\\raw\\train\\images",
+      "labels_dir": "data\\raw\\train\\labels",
+      "num_images": 3220,
+      "num_labels": 3220,
+      "label_errors": [
+        [
+          "021e768d7d819b45_output_jpg.rf.74117eb13d9412c7be056072669064f9.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "021e768d7d819b45_output_jpg.rf.9dab61de443909a89b1a415f56115942.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "021e768d7d819b45_output_jpg.rf.c4521028590dab7645bc51a3b9303799.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "058d115cc296b82c_output_jpg.rf.0fe962bab8edfc43d8e85d7b943fde6c.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "058d115cc296b82c_output_jpg.rf.4b16f9322e47784ee51bde3facd04217.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "058d115cc296b82c_output_jpg.rf.8b008c97d9b1d40f1ea4b49dc03001ba.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "058d115cc296b82c_output_jpg.rf.c4203cb0f8f3442142ea4940bbc6bab3.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "058d115cc296b82c_output_jpg.rf.e14ea95edd7e5aae6d08b794d0495818.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "07cd51784087dd43_output_jpg.rf.0a50ee5403eac05a7fe85c8a5dd558f1.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "07cd51784087dd43_output_jpg.rf.3d97de4d48a4ca8bb01cdb6403b15361.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "07cd51784087dd43_output_jpg.rf.43fddd02f6b30779e851d0f40b39a630.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "07cd51784087dd43_output_jpg.rf.7380ba5b74db38327c36b8643023f6d4.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "07cd51784087dd43_output_jpg.rf.a5b43c5b0aa56d25010f633ebaf049d6.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "07cd51784087dd43_output_jpg.rf.cb87bdfb8aac7491d7ea3ff9e8594b24.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "07cd51784087dd43_output_jpg.rf.d9ea6775b35ac66bf8a1f77210d28a00.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "07cd51784087dd43_output_jpg.rf.ff39d028231efd81472029ca278efede.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "0_output_jpg.rf.8407734b044126d83f2f4207d8ec06a6.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "10c3818cab8eeca1_output_jpg.rf.72f1e41b5d75619a84df586fe00f08b4.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "10c3818cab8eeca1_output_jpg.rf.73fb2d5e9b691a0ad0a8edc760dd5a45.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "10c3818cab8eeca1_output_jpg.rf.d03412bc4e69e9ebf6bdac3045f535f1.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "10_output_jpg.rf.0e10d669f2b9525312744fb4a46ecfcb.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "10_output_jpg.rf.7c42a35967941dd445cdf7d8764155d0.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "13flip_output_jpg.rf.3221ffab055375dce6c515a5dacb3ef4.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "13flip_output_jpg.rf.61a6395a8cd259bca1709d72fc119d48.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "13flip_output_jpg.rf.9cc858abc4ae7cca53c90ca258d82d2a.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "13flip_output_jpg.rf.df505a17a728c5df833050aa2fb57ddd.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "13_output_jpg.rf.21b845d9bd061f2d662044971b29c8f7.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "13_output_jpg.rf.83c429a411e07c976a894299aadecc55.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "13_output_jpg.rf.b32282070b2986cdf9f34d0825b46276.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "13_output_jpg.rf.b79272f85ec4901257fcbad01f89a51d.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "13_output_jpg.rf.bf02ef366209453ceee915afe2814542.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "13_output_jpg.rf.fba31f6adc5e58d8bf6e96ddd58bbf4e.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "15flip_output_jpg.rf.90463ea0b992eeb2a93f2888352a775e.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "15flip_output_jpg.rf.a0dc2d1dbe326d84b3fc9765410e26bd.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "15flip_output_jpg.rf.d0a9677ba5ae3c60ffe12d34be84e072.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "15flip_output_jpg.rf.eab4529438f10c0907023b738f9aa4a0.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "15_output_jpg.rf.137b4ef28978afad4c6ef0f3eeeac4b1.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "15_output_jpg.rf.8f64648fc1d20bcabacadc718f009200.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "16flip_output_jpg.rf.199063c5a012050240892a5d1d850168.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "16flip_output_jpg.rf.4bf9587c83692dbe8c1af9590685b0b7.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "16flip_output_jpg.rf.e059f8dc9b175ca25c18ce9a3d65316f.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "16flip_output_jpg.rf.fe7f9fc6645d6a3fca5ff9e2c70f79e5.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "16_output_jpg.rf.1297c425de1c903d93fde1f572cfaed1.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "16_output_jpg.rf.32d772fcae13fac998537d20822ee00d.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "16_output_jpg.rf.34736e0ded0284c755dd257e54efbce4.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "16_output_jpg.rf.53c7f298daac54a3d71cbb56d373d267.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "16_output_jpg.rf.66d695f042c3c744d1d4149cb510a7e1.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "16_output_jpg.rf.6d2a40109ca168d8f916b32d695aced0.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "16_output_jpg.rf.bc4d27865b33d1b2a3140f6388f347ba.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "16_output_jpg.rf.c4fc048a2d71de064e7d3ea4ffc85b74.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "16_output_jpg.rf.de729179f43c5fe5d050a34fe3a6334f.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "16_output_jpg.rf.e20dac0e2fc28206e8b3d92c47534aef.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "16_output_jpg.rf.fbd369103338822cb23f5a3ed7c69642.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "1d2052854bb6edf8_output_jpg.rf.3e5210b3415e77f4be85be91205035b4.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "1d2052854bb6edf8_output_jpg.rf.ca73a68bbdcd0a7a0f028066f0401943.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "1d2052854bb6edf8_output_jpg.rf.e2dfed91904c668532369e1d3c237a18.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "1db1441c8f1dbfee_output_jpg.rf.20ebc71733da2d368263ce9691dfb989.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "1db1441c8f1dbfee_output_jpg.rf.9053b13d14db7d6babd43ba23a1863c1.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "1db1441c8f1dbfee_output_jpg.rf.a1f44daa27b4459842225c292e431434.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "1db1441c8f1dbfee_output_jpg.rf.b324477f2c10077f118e6726ddb55b36.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "20b1201f2935e323_output_jpg.rf.12df5339354b15e38aadbade6dcacbd5.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "20b1201f2935e323_output_jpg.rf.e63ee8ddea95457df7b72d3564f83281.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "20b1201f2935e323_output_jpg.rf.fbb026ea067d7928876b8cde13665bc8.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "20d0638b20f223ab_output_jpg.rf.133126bcc5e3b17d9c13f40c26f2fce5.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "20d0638b20f223ab_output_jpg.rf.2e352ab97a621f33607a5a8bd77a7ac5.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "20d0638b20f223ab_output_jpg.rf.6f0203439940e61a8cce578b75e89fbf.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "20d0638b20f223ab_output_jpg.rf.a726c817e0db40ea214ccac49c6787c2.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "20d0638b20f223ab_output_jpg.rf.dc66fc45a9f2c62b08a42b81cd3bcfc5.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "20flip_output_jpg.rf.83456757a2b4baf444b5b149d5a29ebf.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "20flip_output_jpg.rf.85e228824d807887267c8ff707e0c19d.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "20flip_output_jpg.rf.f7af5ba07874ad611592988df9f5b860.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "20_output_jpg.rf.b6131b2d29394d513c66dea0712ee666.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "20_output_jpg.rf.d5c77eb3c49abf583c841b813c478f33.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "21flip_output_jpg.rf.1ebafa57e9008271735eebf8c753ba02.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "21flip_output_jpg.rf.833e4066c977fb9941a567ba837a6781.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "21flip_output_jpg.rf.fb51274552a1cfbecc7a51782d458ee4.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "21_output_jpg.rf.5f5bbd53fd667d2ee06623b12f4316e9.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "22_output_jpg.rf.6d7be25d353329c85bf7f1b48099baff.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "24flip_output_jpg.rf.391c76a16efc300f80a9b50ab3550b30.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "24flip_output_jpg.rf.c87ae58c8cd36ae70da9adfa3d92d7bf.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "24_output_jpg.rf.17f53dafdace1100540d6097389a0b7a.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "24_output_jpg.rf.2e2d6aa2f3dbd250e0e5bb7cadc89b44.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "24_output_jpg.rf.5fc269dbe6c1d6da0c1c94e2ca8d4f5d.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "24_output_jpg.rf.98ab03892062002eca4ff6aff98d9945.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "24_output_jpg.rf.b3a81619d8cfb0f02665db2c2305e09b.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "25-612flip_output_jpg.rf.66b9cf561f537291f8424d72fd4443ce.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "25-612flip_output_jpg.rf.681ce52d5c29567e5147a3a500e5960a.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "25-612flip_output_jpg.rf.9da9a2a2c1a204f9a4758f446aafc602.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "25-612flip_output_jpg.rf.a3619924d19e23d7d60b29ef22c6f610.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "26_output_jpg.rf.565891068a1f3a46dd11914db451a63e.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "26_output_jpg.rf.9994d41ed1fb5726db17e08a307c6378.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "274f5ab94c672119_output_jpg.rf.1806ec409b1e1bb869be8cb6c98bae43.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "274f5ab94c672119_output_jpg.rf.6d7cf08e15eb12b92074b9586a5593c9.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "274f5ab94c672119_output_jpg.rf.83d8368b52963c0605c8866aab3c698a.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "274f5ab94c672119_output_jpg.rf.888f9d75d89fb79530d89d62cb9c86e9.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "274f5ab94c672119_output_jpg.rf.8c871bae3bf6053c392c43c40b284bf9.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "274f5ab94c672119_output_jpg.rf.8f4e8654a8c8e87e105883c83679197f.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "313746e7e47c5fbb_output_jpg.rf.4d70f4c895b1798bf03f033ac88c312b.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "313746e7e47c5fbb_output_jpg.rf.4eb7849f290cdf9588e6af99440b4785.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "313746e7e47c5fbb_output_jpg.rf.b83ae457dda7614837a39d645242e57f.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "33flip_output_jpg.rf.50c5802812581a7e94700fef040d79ba.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "33flip_output_jpg.rf.c50e6d7158dfc3905c5d60c9469ea7e1.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "3_output_jpg.rf.19ea95559c49ad125054055bad4eacf1.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "3_output_jpg.rf.20b2587fa757f65c356e45b9a762512c.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "3_output_jpg.rf.2e5a989f80212664f56b86fb836887eb.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "3_output_jpg.rf.512c0f4db873f50cd982786163193784.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "3_output_jpg.rf.6d3d3c8d856c38451c2427269bdf3fe6.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "3_output_jpg.rf.78254ed2b391b6eeaf1f51ad964f7044.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "3_output_jpg.rf.81f5a9a18cae040f5ac8885997fc7890.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "3_output_jpg.rf.9640f47e16020be451a7be58426df738.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "3_output_jpg.rf.ad8ed6492a5e7958ce2ce1d6d619d947.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "3_output_jpg.rf.c6fd3d63d79fd9753f559ac517a32d73.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "3_output_jpg.rf.e2a8af9c0bf1dc3190dc556c4911e525.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "3_output_jpg.rf.f84be2c8f395ed85081fc457bbb06b90.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "3_output_jpg.rf.fa743e0ef308ef31d3eb053cb59228f9.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "4-22-_jpg.rf.7f672927fc709855147c4f12fa09180a.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "4-22-_jpg.rf.974520c12acc1bf4d869393b47e44e4a.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "4-22-_jpg.rf.ebfe97eee01c9b67d637ea1c7fcb69aa.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "4-42-_jpg.rf.475cadeeef0c5f761b15454a8a144bb8.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "4-42-_jpg.rf.915a270ee5d046f8a4e31f8742546a93.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "4-42-_jpg.rf.9f5435ddbf3db39573030952c63c9911.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "4-42-_jpg.rf.df231a8b9e4b86b868b6d99c6df38221.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "40_output_jpg.rf.05848afbd0a59a7a28306e0010d81598.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "40_output_jpg.rf.ae4efdc0dea6930e87e1dbce2f8e50b2.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "40_output_jpg.rf.d489b340f8a86ea54d0d3367c8912bba.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "43flip_output_jpg.rf.4bc7785d7b0cffcb7fe5fdca522f2a5e.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "43flip_output_jpg.rf.9a7b615bb8f559faf83718a0370a9e0b.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "43_output_jpg.rf.0142c11ffc8d99965741e1caec6d8441.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "43_output_jpg.rf.04f3a51e05212ddc81dfabb46de21655.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "43_output_jpg.rf.1ea74e3da4fb6c84df2045b1d0a645e6.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "43_output_jpg.rf.30c90c38448f2a8b457b7de491dbcf7a.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "43_output_jpg.rf.4921235abc20c13658eb7ea7e2197262.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "43_output_jpg.rf.702225a04d65cf9adc5aec6b59982a70.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "43_output_jpg.rf.79a98a964662e130298e344f1a950482.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "43_output_jpg.rf.842ac1d4ad13e2758a7bbb201a0af750.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "43_output_jpg.rf.a8792c08ced3f409210210bd27a45f86.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "50flip_output_jpg.rf.17c49d3e060a795019d7044dcb1519c3.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "50flip_output_jpg.rf.560584b2480d4068e46bb1d4d56dad1a.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "50flip_output_jpg.rf.5e328aea25acdffbaea8d6bfff523844.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "50flip_output_jpg.rf.6a3e5a5182deeb79819f9ab35c3fdf41.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "50flip_output_jpg.rf.9496f0f3fed370bc4803dad1c6dded11.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "54_output_jpg.rf.3967c4faf3fd574ee9c80be7178f273e.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "54_output_jpg.rf.7c99dc6aefb13f80d28953c1ed5bf1a7.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "54_output_jpg.rf.db39b5b200faa44fa1e605d306509d74.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "57_output_jpg.rf.33a80ef54448c3a521572746a4ce45cc.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "57_output_jpg.rf.a496cff0e0dd377c61f77160e38c677e.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "57_output_jpg.rf.ca5ab34da338c3823acf5e73ddf4b5d5.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "59flipped_output_jpg.rf.01a4e1555e871b4f3b192d36fd02f367.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "59flipped_output_jpg.rf.5e902c7a4bd393d40eb58521c1661f82.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "59_output_jpg.rf.23dc5ab903f5e8cc6e660648eabeb4d7.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "59_output_jpg.rf.49985a0ae50bc51194ed88c0ce6b2322.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "59_output_jpg.rf.701337301430dd13d2c76ceb838708dc.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "59_output_jpg.rf.8148410ca8087bd0dd07b49043cc5bf9.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "59_output_jpg.rf.c4f7799b3b3cf98b55dfa82bd91dd7c2.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "59_output_jpg.rf.cd8fbbeb41fb3a726c53fd9290c4a3c3.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "67_output_jpg.rf.1d302a9295d8789deb9658d0aeeefc12.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "67_output_jpg.rf.2a3d678456e14d911c3c1b07ff406f44.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "6c21f7c59d756372_output_jpg.rf.6723ef588559e1ed820d6463a4241b87.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "6c21f7c59d756372_output_jpg.rf.b256e1dd7dee78649e0068317f744020.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "6_output_jpg.rf.1065085ad8bd94d41ffdca1b9540de27.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "6_output_jpg.rf.7b653538400a498aafbe537b168e090a.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "6_output_jpg.rf.aa0984ba9fc3af28edb63f238d9ff1a7.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "6_output_jpg.rf.f8b214fdf2489f278a87d2868b6765d5.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "72a6a9b971e855fb_output_jpg.rf.355f7ba10b76057c4be29b1f296d3fcb.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "72a6a9b971e855fb_output_jpg.rf.4bbc9d452a878af694d49cda521a2cc5.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "72a6a9b971e855fb_output_jpg.rf.e7e019045e501ab9acdd04e67a9c9ec8.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "76_output_jpg.rf.016abba7227eb74fd8a51d3680260d74.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "76_output_jpg.rf.aca0be5788b3ac99c22c42778a96202a.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "76_output_jpg.rf.c58b15549e282c5553b9f82ba7ad3243.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "76_output_jpg.rf.ed6371ab2c1eb5ecb9224aa3855e8902.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "77flip_output_jpg.rf.c49c308dd899be78e85841e8679bb7c0.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "77_output_jpg.rf.1d3404d8e0701dd59d97c9f138bab81b.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "77_output_jpg.rf.1ebbe1b73070ec8b1974ade86dd9ae14.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "77_output_jpg.rf.3f9acac94fd07e03f6b1da64ab070f48.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "77_output_jpg.rf.5bb738a17d2d3411206ab3014141c834.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "77_output_jpg.rf.6897ca0693cf71a40872b8ba7c4966df.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "77_output_jpg.rf.7824ca531c19f2ed0bcb499642f98563.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "77_output_jpg.rf.a3a578a87141b3939e1d156f63c18d56.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "77_output_jpg.rf.d5617c0812023263df553a38e9f50682.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "7a33372ef3473450_output_jpg.rf.2677b25c24b6ff7b311eb0cf2a9dc93b.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "7a33372ef3473450_output_jpg.rf.3c42cb133cb564c4172ddbee1017035a.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "7a33372ef3473450_output_jpg.rf.55debfc125a164475d97e427ad59706c.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "7a33372ef3473450_output_jpg.rf.f0866cb7d852f78a347159432237eb28.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "7ad8bcc463c2bb36_output_jpg.rf.9598ed4db72234d9757e0f5213dbbf5b.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "7ad8bcc463c2bb36_output_jpg.rf.ef4c86435e2c64b9cddc1f819d4bd35e.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "7e48ed88da8a7066_output_jpg.rf.37a8869b9fc7ba169558e5f8ad03ec14.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "7e48ed88da8a7066_output_jpg.rf.c07c0f88d031b3dc8e9366b4814869b8.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "7e48ed88da8a7066_output_jpg.rf.c3cc47d1da7f2aa30f41631e1cd770b0.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "9537255a7688f54b_output_jpg.rf.16cbddfa124d5fe59095db69a1951b4b.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "9537255a7688f54b_output_jpg.rf.229deec67bbbec41219937ac4597cd2b.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "9537255a7688f54b_output_jpg.rf.3ec37c124365cea532a1d3b34db31bbf.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "9537255a7688f54b_output_jpg.rf.458ebe971df178da403d756538f5586c.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "9537255a7688f54b_output_jpg.rf.6b2b2160d5512890595fa5d9f7b45ae6.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "9537255a7688f54b_output_jpg.rf.7bdfbbf8f38641e54da7657ae1c4c364.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "9537255a7688f54b_output_jpg.rf.8cae9e4f49a92f68f06159b926f40a63.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "9537255a7688f54b_output_jpg.rf.9127dd51f6ed8b65b26ec95bfaa68442.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "9537255a7688f54b_output_jpg.rf.9c1f1264fbebcedf326671313b1ddb69.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "9537255a7688f54b_output_jpg.rf.baeb59792e93ca2221b0018e16299961.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "9537255a7688f54b_output_jpg.rf.db267c83ff41f43fc55550d3f0fa1f10.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "9537255a7688f54b_output_jpg.rf.df6f3580692530cffd14a280a8d74709.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "9537255a7688f54b_output_jpg.rf.e38bd6000aeb96491611c76068ddc0bc.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "9_output_jpg.rf.427114a0b3d1530d9bd7ae75f075e0b3.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "9_output_jpg.rf.64526861be9d2c2ae559d6ac2a0289be.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "9_output_jpg.rf.803b1925be8604c00c3b310b8d29ac24.txt",
+          "Line 1: Expected 5 values, got 11"
+        ]
+      ],
+      "missing_labels": [],
+      "class_counts": {
+        "24": 450,
+        "6": 961,
+        "16": 348,
+        "11": 83,
+        "4": 1296,
+        "8": 871,
+        "15": 747,
+        "14": 118,
+        "13": 204,
+        "22": 655,
+        "1": 169,
+        "18": 419,
+        "23": 439,
+        "5": 117,
+        "25": 51,
+        "21": 105,
+        "2": 153,
+        "12": 116,
+        "26": 35,
+        "20": 86,
+        "0": 284,
+        "17": 783,
+        "10": 28,
+        "19": 36,
+        "9": 45,
+        "7": 31,
+        "3": 33
+      }
+    },
+    "valid": {
+      "split": "valid",
+      "exists": true,
+      "images_dir": "data\\raw\\valid\\images",
+      "labels_dir": "data\\raw\\valid\\labels",
+      "num_images": 920,
+      "num_labels": 920,
+      "label_errors": [
+        [
+          "058d115cc296b82c_output_jpg.rf.eb3533fae69ba264f9c0253aea770f9d.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "07cd51784087dd43_output_jpg.rf.2b911f1a228c018093bc5fd396a0c694.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "07cd51784087dd43_output_jpg.rf.bbc3bad7e27bc95f30cccf7e9f9f56b7.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "07cd51784087dd43_output_jpg.rf.cf615dff6c10f86c7a3bb1287a5674ee.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "07cd51784087dd43_output_jpg.rf.d9776f9fea04f2b14c334cd763b6fb9b.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "10c3818cab8eeca1_output_jpg.rf.e6c8da7f8c953a71a5f8411cd418a622.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "10c3818cab8eeca1_output_jpg.rf.e936b173d75866ea6a7916aa3cf03d8f.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "10c3818cab8eeca1_output_jpg.rf.f77784fe4cd4e8703eb35b4977f0b7cf.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "10_output_jpg.rf.3ef2906f512af6809e30d64275bf672c.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "10_output_jpg.rf.948f46cc0aa4380f1c26c76d11152dc6.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "10_output_jpg.rf.df5253d3ff620fcb95ced8e31bb2f3dc.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "13flip_output_jpg.rf.44f40fed70228c6e89b191518140433d.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "13flip_output_jpg.rf.d2276e324e5386f81b63ec1cd1cbf540.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "13_output_jpg.rf.3d403042dfdcb8a3c734d0e705e40fb4.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "13_output_jpg.rf.78a1236daf473e327ec5ab4e28435f92.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "15flip_output_jpg.rf.6e46957646f618b645ebaab009dc4374.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "15flip_output_jpg.rf.f41aa6c1645f880d1b216fab07af72fa.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "15_output_jpg.rf.d3da6881072a3241cf99a6a22e8622e9.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "16flip_output_jpg.rf.1d3bd82bd74af15c5c9bdb5baed5decb.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "16flip_output_jpg.rf.a7e687463e413a1520046a7d227e5ca7.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "16_output_jpg.rf.7c321860abea47829af15cf4ccfd394b.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "16_output_jpg.rf.a46d543bf7416c155ecaaf1b5ddca51e.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "16_output_jpg.rf.d48ef970ab8457783a09ab7c1464956b.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "1db1441c8f1dbfee_output_jpg.rf.0f7f111b435fa3442de057f488f9c73d.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "1db1441c8f1dbfee_output_jpg.rf.51179489bb22339554fc2d229ea0f384.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "21flip_output_jpg.rf.490b703b1ea574c02de4495b8cb502eb.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "21flip_output_jpg.rf.ed388d388df3c31f55c26f5b2ea45f34.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "21_output_jpg.rf.18a1e05ac6dd85e846cd7beaa2344092.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "21_output_jpg.rf.429709e2f6ebbd24f77bc9959fa34119.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "21_output_jpg.rf.4dfb6e5442f8ae4ae0840ff70d8db121.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "21_output_jpg.rf.dc75a68ada2c1cb675e7e656f7d04040.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "22_output_jpg.rf.1322570aff2294905667ac659e74e6fd.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "22_output_jpg.rf.4a04dab7be0c6866dd6d7c682027f4a5.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "24flip_output_jpg.rf.57cbb161004b7c6a2cb008e2219926b3.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "24_output_jpg.rf.2b138e8213f7ecdec925a0d69e1b28ee.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "25-612flip_output_jpg.rf.61e188f72907c80f01c555263226ed2d.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "25-612flip_output_jpg.rf.d3552145255244444a85f7b4014aac98.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "26_output_jpg.rf.e33c51373e989731ecae6e31fa60887a.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "33flip_output_jpg.rf.bc43d36d5e61ff1cb37205ae31e3fda0.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "3_output_jpg.rf.a00f4ef9e269b4377fa2e4e7c959b16f.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "4-22-_jpg.rf.3fc6bbdd8273c84ed2bc297a71ba0021.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "4-22-_jpg.rf.532ba153a7781ae308b39f49859f2def.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "4-42-_jpg.rf.683847c4ef86889820fdeb9706664f4d.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "4-42-_jpg.rf.a550dc7f6a17350bba603e13bf4c5c5f.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "43flip_output_jpg.rf.eb6262555c94f462d1228fad6a8dd546.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "43_output_jpg.rf.11045cd5642519ba0c0f1196e36d18fc.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "43_output_jpg.rf.4a1f511ea34c47deaf8afcc95ecfdaea.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "43_output_jpg.rf.9771cf096b17d5b6b34df1e20ca80f49.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "43_output_jpg.rf.afc880a8609c1406ae07b19ba5ed626d.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "43_output_jpg.rf.b5e266cf4999157b3749432f1bc01b89.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "43_output_jpg.rf.d421d12e5f8e24b77de76c3205e291e8.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "50flip_output_jpg.rf.6769a30fe80a03f3dc297b43fa7e4efc.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "50_output_jpg.rf.77e6b51278a8cb4d85cb995be7a6d4a2.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "50_output_jpg.rf.afaf79bfda0a7fea91a8992d212c948c.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "50_output_jpg.rf.b2f1eb8c7801d3b1cf7b4fdeb03e845a.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "50_output_jpg.rf.d1d80c9a81dfc443043fd16dbe40096b.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "54_output_jpg.rf.d941db68b5ab05ac2d23183d03628702.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "59flipped_output_jpg.rf.21a8fe177c2c0de6f8bd43637d870484.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "67_output_jpg.rf.0103b3ee282c6ca885e39944a3d07209.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "6_output_jpg.rf.9b4287ed1a350edfd774dbb1c976934f.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "77_output_jpg.rf.02a446ef1f967889717ab51872004f65.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "77_output_jpg.rf.0f15f466f12e451add980d755486514f.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "7a33372ef3473450_output_jpg.rf.0ee7037f0d67c4373aac19382c7dd123.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "7ad8bcc463c2bb36_output_jpg.rf.9a2f83641d8be7c929788b30aacde37c.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "9537255a7688f54b_output_jpg.rf.5488c5beaf4af7398314741e247b895b.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "9537255a7688f54b_output_jpg.rf.ce456780d197e96ccfe3cf8e63c73e9f.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "9_output_jpg.rf.4909e5deeabe017970d2b50ccc5cf255.txt",
+          "Line 1: Expected 5 values, got 11"
+        ]
+      ],
+      "missing_labels": [],
+      "class_counts": {
+        "24": 129,
+        "11": 33,
+        "16": 106,
+        "8": 286,
+        "4": 413,
+        "15": 158,
+        "22": 193,
+        "6": 256,
+        "1": 35,
+        "2": 24,
+        "21": 50,
+        "5": 24,
+        "25": 14,
+        "13": 54,
+        "26": 5,
+        "17": 154,
+        "12": 42,
+        "0": 76,
+        "19": 11,
+        "18": 119,
+        "20": 21,
+        "7": 13,
+        "23": 120,
+        "10": 5,
+        "9": 5,
+        "14": 40,
+        "3": 11
+      }
+    },
+    "test": {
+      "split": "test",
+      "exists": true,
+      "images_dir": "data\\raw\\test\\images",
+      "labels_dir": "data\\raw\\test\\labels",
+      "num_images": 460,
+      "num_labels": 460,
+      "label_errors": [
+        [
+          "0c568786cc09e0a1_output_jpg.rf.b37eb7a4e5f8e8c23e38902c5bd12e47.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "10_output_jpg.rf.bda35b0928f19e6830a7ecfd337cd75d.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "13_output_jpg.rf.2141b875003c4cf31054de86e891cca7.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "16_output_jpg.rf.0b2ad7e48680c32f490a49e959b002ef.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "20d0638b20f223ab_output_jpg.rf.46e62c041ed684b30bae33be2207dff1.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "20_output_jpg.rf.8d64719d2122e06f05c025c4b533390f.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "21flip_output_jpg.rf.75af25d0d5e5cb4e6ece66650765970b.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "21_output_jpg.rf.fe48066629100674c158989952bf0f28.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "3_output_jpg.rf.8b38af44669f49c5bd8f08308028da80.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "4-22-_jpg.rf.58ec59e5bb4d4fee839fbf39ff918d1e.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "4-42-_jpg.rf.155d4ef59facb898ae82c044274dd9f1.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "4-42-_jpg.rf.a3b453a73fa794acf4d5aa864863c108.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "4-42-_jpg.rf.ede7b34148a4541b9c7270e09da00750.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "50_output_jpg.rf.b46e32ceff17d0600819baa40f668fdf.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "50_output_jpg.rf.fba6c2de43f316da5b302d61349c36a4.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "54_output_jpg.rf.0aecd2d76c993e99225d5547c3a9020f.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "54_output_jpg.rf.858d44231abd87b38a4b69bcf4f694f2.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "6c21f7c59d756372_output_jpg.rf.8006633e84030142d2c11c786e6a39eb.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "6_output_jpg.rf.87fb2de458bf36a1a312020d081e0a3c.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "76_output_jpg.rf.5bf1533d7d05156194a065ba87dab72a.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "76_output_jpg.rf.8920308565d89e12db8cf8bd4b07107a.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "77flip_output_jpg.rf.4c6013f9d04345ec8beda0cfec3890a8.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "77flip_output_jpg.rf.db462459c8ef1b26b1cd86d62469bd33.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "77_output_jpg.rf.4a8baa97e3de385cb840c034e95f59a8.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "77_output_jpg.rf.5fb8de321a5e652d97f57368145bd6c9.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "7a33372ef3473450_output_jpg.rf.32fa1e89dd002c76bb2bab2aa293f9a0.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "9_output_jpg.rf.7ba26b657ddf2cf4d91d32e29097f34f.txt",
+          "Line 1: Expected 5 values, got 11"
+        ],
+        [
+          "9_output_jpg.rf.be4c5dd447823b99a015f44706d4c624.txt",
+          "Line 1: Expected 5 values, got 11"
+        ]
+      ],
+      "missing_labels": [],
+      "class_counts": {
+        "16": 51,
+        "8": 130,
+        "4": 209,
+        "24": 60,
+        "15": 94,
+        "23": 81,
+        "11": 18,
+        "2": 20,
+        "20": 9,
+        "6": 110,
+        "21": 25,
+        "22": 94,
+        "5": 17,
+        "25": 12,
+        "0": 29,
+        "1": 29,
+        "17": 129,
+        "18": 50,
+        "26": 3,
+        "12": 12,
+        "13": 25,
+        "19": 4,
+        "10": 3,
+        "7": 5,
+        "9": 2,
+        "14": 20,
+        "3": 5
+      }
+    }
+  },
+  "label_errors": [
+    [
+      "train",
+      [
+        "021e768d7d819b45_output_jpg.rf.74117eb13d9412c7be056072669064f9.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "021e768d7d819b45_output_jpg.rf.9dab61de443909a89b1a415f56115942.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "021e768d7d819b45_output_jpg.rf.c4521028590dab7645bc51a3b9303799.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "058d115cc296b82c_output_jpg.rf.0fe962bab8edfc43d8e85d7b943fde6c.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "058d115cc296b82c_output_jpg.rf.4b16f9322e47784ee51bde3facd04217.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "058d115cc296b82c_output_jpg.rf.8b008c97d9b1d40f1ea4b49dc03001ba.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "058d115cc296b82c_output_jpg.rf.c4203cb0f8f3442142ea4940bbc6bab3.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "058d115cc296b82c_output_jpg.rf.e14ea95edd7e5aae6d08b794d0495818.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "07cd51784087dd43_output_jpg.rf.0a50ee5403eac05a7fe85c8a5dd558f1.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "07cd51784087dd43_output_jpg.rf.3d97de4d48a4ca8bb01cdb6403b15361.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "07cd51784087dd43_output_jpg.rf.43fddd02f6b30779e851d0f40b39a630.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "07cd51784087dd43_output_jpg.rf.7380ba5b74db38327c36b8643023f6d4.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "07cd51784087dd43_output_jpg.rf.a5b43c5b0aa56d25010f633ebaf049d6.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "07cd51784087dd43_output_jpg.rf.cb87bdfb8aac7491d7ea3ff9e8594b24.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "07cd51784087dd43_output_jpg.rf.d9ea6775b35ac66bf8a1f77210d28a00.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "07cd51784087dd43_output_jpg.rf.ff39d028231efd81472029ca278efede.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "0_output_jpg.rf.8407734b044126d83f2f4207d8ec06a6.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "10c3818cab8eeca1_output_jpg.rf.72f1e41b5d75619a84df586fe00f08b4.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "10c3818cab8eeca1_output_jpg.rf.73fb2d5e9b691a0ad0a8edc760dd5a45.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "10c3818cab8eeca1_output_jpg.rf.d03412bc4e69e9ebf6bdac3045f535f1.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "10_output_jpg.rf.0e10d669f2b9525312744fb4a46ecfcb.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "10_output_jpg.rf.7c42a35967941dd445cdf7d8764155d0.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "13flip_output_jpg.rf.3221ffab055375dce6c515a5dacb3ef4.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "13flip_output_jpg.rf.61a6395a8cd259bca1709d72fc119d48.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "13flip_output_jpg.rf.9cc858abc4ae7cca53c90ca258d82d2a.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "13flip_output_jpg.rf.df505a17a728c5df833050aa2fb57ddd.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "13_output_jpg.rf.21b845d9bd061f2d662044971b29c8f7.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "13_output_jpg.rf.83c429a411e07c976a894299aadecc55.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "13_output_jpg.rf.b32282070b2986cdf9f34d0825b46276.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "13_output_jpg.rf.b79272f85ec4901257fcbad01f89a51d.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "13_output_jpg.rf.bf02ef366209453ceee915afe2814542.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "13_output_jpg.rf.fba31f6adc5e58d8bf6e96ddd58bbf4e.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "15flip_output_jpg.rf.90463ea0b992eeb2a93f2888352a775e.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "15flip_output_jpg.rf.a0dc2d1dbe326d84b3fc9765410e26bd.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "15flip_output_jpg.rf.d0a9677ba5ae3c60ffe12d34be84e072.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "15flip_output_jpg.rf.eab4529438f10c0907023b738f9aa4a0.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "15_output_jpg.rf.137b4ef28978afad4c6ef0f3eeeac4b1.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "15_output_jpg.rf.8f64648fc1d20bcabacadc718f009200.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "16flip_output_jpg.rf.199063c5a012050240892a5d1d850168.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "16flip_output_jpg.rf.4bf9587c83692dbe8c1af9590685b0b7.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "16flip_output_jpg.rf.e059f8dc9b175ca25c18ce9a3d65316f.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "16flip_output_jpg.rf.fe7f9fc6645d6a3fca5ff9e2c70f79e5.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "16_output_jpg.rf.1297c425de1c903d93fde1f572cfaed1.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "16_output_jpg.rf.32d772fcae13fac998537d20822ee00d.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "16_output_jpg.rf.34736e0ded0284c755dd257e54efbce4.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "16_output_jpg.rf.53c7f298daac54a3d71cbb56d373d267.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "16_output_jpg.rf.66d695f042c3c744d1d4149cb510a7e1.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "16_output_jpg.rf.6d2a40109ca168d8f916b32d695aced0.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "16_output_jpg.rf.bc4d27865b33d1b2a3140f6388f347ba.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "16_output_jpg.rf.c4fc048a2d71de064e7d3ea4ffc85b74.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "16_output_jpg.rf.de729179f43c5fe5d050a34fe3a6334f.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "16_output_jpg.rf.e20dac0e2fc28206e8b3d92c47534aef.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "16_output_jpg.rf.fbd369103338822cb23f5a3ed7c69642.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "1d2052854bb6edf8_output_jpg.rf.3e5210b3415e77f4be85be91205035b4.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "1d2052854bb6edf8_output_jpg.rf.ca73a68bbdcd0a7a0f028066f0401943.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "1d2052854bb6edf8_output_jpg.rf.e2dfed91904c668532369e1d3c237a18.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "1db1441c8f1dbfee_output_jpg.rf.20ebc71733da2d368263ce9691dfb989.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "1db1441c8f1dbfee_output_jpg.rf.9053b13d14db7d6babd43ba23a1863c1.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "1db1441c8f1dbfee_output_jpg.rf.a1f44daa27b4459842225c292e431434.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "1db1441c8f1dbfee_output_jpg.rf.b324477f2c10077f118e6726ddb55b36.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "20b1201f2935e323_output_jpg.rf.12df5339354b15e38aadbade6dcacbd5.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "20b1201f2935e323_output_jpg.rf.e63ee8ddea95457df7b72d3564f83281.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "20b1201f2935e323_output_jpg.rf.fbb026ea067d7928876b8cde13665bc8.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "20d0638b20f223ab_output_jpg.rf.133126bcc5e3b17d9c13f40c26f2fce5.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "20d0638b20f223ab_output_jpg.rf.2e352ab97a621f33607a5a8bd77a7ac5.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "20d0638b20f223ab_output_jpg.rf.6f0203439940e61a8cce578b75e89fbf.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "20d0638b20f223ab_output_jpg.rf.a726c817e0db40ea214ccac49c6787c2.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "20d0638b20f223ab_output_jpg.rf.dc66fc45a9f2c62b08a42b81cd3bcfc5.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "20flip_output_jpg.rf.83456757a2b4baf444b5b149d5a29ebf.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "20flip_output_jpg.rf.85e228824d807887267c8ff707e0c19d.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "20flip_output_jpg.rf.f7af5ba07874ad611592988df9f5b860.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "20_output_jpg.rf.b6131b2d29394d513c66dea0712ee666.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "20_output_jpg.rf.d5c77eb3c49abf583c841b813c478f33.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "21flip_output_jpg.rf.1ebafa57e9008271735eebf8c753ba02.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "21flip_output_jpg.rf.833e4066c977fb9941a567ba837a6781.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "21flip_output_jpg.rf.fb51274552a1cfbecc7a51782d458ee4.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "21_output_jpg.rf.5f5bbd53fd667d2ee06623b12f4316e9.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "22_output_jpg.rf.6d7be25d353329c85bf7f1b48099baff.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "24flip_output_jpg.rf.391c76a16efc300f80a9b50ab3550b30.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "24flip_output_jpg.rf.c87ae58c8cd36ae70da9adfa3d92d7bf.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "24_output_jpg.rf.17f53dafdace1100540d6097389a0b7a.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "24_output_jpg.rf.2e2d6aa2f3dbd250e0e5bb7cadc89b44.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "24_output_jpg.rf.5fc269dbe6c1d6da0c1c94e2ca8d4f5d.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "24_output_jpg.rf.98ab03892062002eca4ff6aff98d9945.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "24_output_jpg.rf.b3a81619d8cfb0f02665db2c2305e09b.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "25-612flip_output_jpg.rf.66b9cf561f537291f8424d72fd4443ce.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "25-612flip_output_jpg.rf.681ce52d5c29567e5147a3a500e5960a.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "25-612flip_output_jpg.rf.9da9a2a2c1a204f9a4758f446aafc602.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "25-612flip_output_jpg.rf.a3619924d19e23d7d60b29ef22c6f610.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "26_output_jpg.rf.565891068a1f3a46dd11914db451a63e.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "26_output_jpg.rf.9994d41ed1fb5726db17e08a307c6378.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "274f5ab94c672119_output_jpg.rf.1806ec409b1e1bb869be8cb6c98bae43.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "274f5ab94c672119_output_jpg.rf.6d7cf08e15eb12b92074b9586a5593c9.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "274f5ab94c672119_output_jpg.rf.83d8368b52963c0605c8866aab3c698a.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "274f5ab94c672119_output_jpg.rf.888f9d75d89fb79530d89d62cb9c86e9.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "274f5ab94c672119_output_jpg.rf.8c871bae3bf6053c392c43c40b284bf9.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "274f5ab94c672119_output_jpg.rf.8f4e8654a8c8e87e105883c83679197f.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "313746e7e47c5fbb_output_jpg.rf.4d70f4c895b1798bf03f033ac88c312b.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "313746e7e47c5fbb_output_jpg.rf.4eb7849f290cdf9588e6af99440b4785.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "313746e7e47c5fbb_output_jpg.rf.b83ae457dda7614837a39d645242e57f.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "33flip_output_jpg.rf.50c5802812581a7e94700fef040d79ba.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "33flip_output_jpg.rf.c50e6d7158dfc3905c5d60c9469ea7e1.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "3_output_jpg.rf.19ea95559c49ad125054055bad4eacf1.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "3_output_jpg.rf.20b2587fa757f65c356e45b9a762512c.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "3_output_jpg.rf.2e5a989f80212664f56b86fb836887eb.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "3_output_jpg.rf.512c0f4db873f50cd982786163193784.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "3_output_jpg.rf.6d3d3c8d856c38451c2427269bdf3fe6.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "3_output_jpg.rf.78254ed2b391b6eeaf1f51ad964f7044.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "3_output_jpg.rf.81f5a9a18cae040f5ac8885997fc7890.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "3_output_jpg.rf.9640f47e16020be451a7be58426df738.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "3_output_jpg.rf.ad8ed6492a5e7958ce2ce1d6d619d947.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "3_output_jpg.rf.c6fd3d63d79fd9753f559ac517a32d73.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "3_output_jpg.rf.e2a8af9c0bf1dc3190dc556c4911e525.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "3_output_jpg.rf.f84be2c8f395ed85081fc457bbb06b90.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "3_output_jpg.rf.fa743e0ef308ef31d3eb053cb59228f9.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "4-22-_jpg.rf.7f672927fc709855147c4f12fa09180a.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "4-22-_jpg.rf.974520c12acc1bf4d869393b47e44e4a.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "4-22-_jpg.rf.ebfe97eee01c9b67d637ea1c7fcb69aa.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "4-42-_jpg.rf.475cadeeef0c5f761b15454a8a144bb8.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "4-42-_jpg.rf.915a270ee5d046f8a4e31f8742546a93.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "4-42-_jpg.rf.9f5435ddbf3db39573030952c63c9911.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "4-42-_jpg.rf.df231a8b9e4b86b868b6d99c6df38221.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "40_output_jpg.rf.05848afbd0a59a7a28306e0010d81598.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "40_output_jpg.rf.ae4efdc0dea6930e87e1dbce2f8e50b2.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "40_output_jpg.rf.d489b340f8a86ea54d0d3367c8912bba.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "43flip_output_jpg.rf.4bc7785d7b0cffcb7fe5fdca522f2a5e.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "43flip_output_jpg.rf.9a7b615bb8f559faf83718a0370a9e0b.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "43_output_jpg.rf.0142c11ffc8d99965741e1caec6d8441.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "43_output_jpg.rf.04f3a51e05212ddc81dfabb46de21655.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "43_output_jpg.rf.1ea74e3da4fb6c84df2045b1d0a645e6.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "43_output_jpg.rf.30c90c38448f2a8b457b7de491dbcf7a.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "43_output_jpg.rf.4921235abc20c13658eb7ea7e2197262.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "43_output_jpg.rf.702225a04d65cf9adc5aec6b59982a70.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "43_output_jpg.rf.79a98a964662e130298e344f1a950482.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "43_output_jpg.rf.842ac1d4ad13e2758a7bbb201a0af750.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "43_output_jpg.rf.a8792c08ced3f409210210bd27a45f86.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "50flip_output_jpg.rf.17c49d3e060a795019d7044dcb1519c3.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "50flip_output_jpg.rf.560584b2480d4068e46bb1d4d56dad1a.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "50flip_output_jpg.rf.5e328aea25acdffbaea8d6bfff523844.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "50flip_output_jpg.rf.6a3e5a5182deeb79819f9ab35c3fdf41.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "50flip_output_jpg.rf.9496f0f3fed370bc4803dad1c6dded11.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "54_output_jpg.rf.3967c4faf3fd574ee9c80be7178f273e.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "54_output_jpg.rf.7c99dc6aefb13f80d28953c1ed5bf1a7.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "54_output_jpg.rf.db39b5b200faa44fa1e605d306509d74.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "57_output_jpg.rf.33a80ef54448c3a521572746a4ce45cc.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "57_output_jpg.rf.a496cff0e0dd377c61f77160e38c677e.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "57_output_jpg.rf.ca5ab34da338c3823acf5e73ddf4b5d5.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "59flipped_output_jpg.rf.01a4e1555e871b4f3b192d36fd02f367.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "59flipped_output_jpg.rf.5e902c7a4bd393d40eb58521c1661f82.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "59_output_jpg.rf.23dc5ab903f5e8cc6e660648eabeb4d7.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "59_output_jpg.rf.49985a0ae50bc51194ed88c0ce6b2322.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "59_output_jpg.rf.701337301430dd13d2c76ceb838708dc.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "59_output_jpg.rf.8148410ca8087bd0dd07b49043cc5bf9.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "59_output_jpg.rf.c4f7799b3b3cf98b55dfa82bd91dd7c2.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "59_output_jpg.rf.cd8fbbeb41fb3a726c53fd9290c4a3c3.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "67_output_jpg.rf.1d302a9295d8789deb9658d0aeeefc12.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "67_output_jpg.rf.2a3d678456e14d911c3c1b07ff406f44.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "6c21f7c59d756372_output_jpg.rf.6723ef588559e1ed820d6463a4241b87.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "6c21f7c59d756372_output_jpg.rf.b256e1dd7dee78649e0068317f744020.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "6_output_jpg.rf.1065085ad8bd94d41ffdca1b9540de27.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "6_output_jpg.rf.7b653538400a498aafbe537b168e090a.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "6_output_jpg.rf.aa0984ba9fc3af28edb63f238d9ff1a7.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "6_output_jpg.rf.f8b214fdf2489f278a87d2868b6765d5.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "72a6a9b971e855fb_output_jpg.rf.355f7ba10b76057c4be29b1f296d3fcb.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "72a6a9b971e855fb_output_jpg.rf.4bbc9d452a878af694d49cda521a2cc5.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "72a6a9b971e855fb_output_jpg.rf.e7e019045e501ab9acdd04e67a9c9ec8.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "76_output_jpg.rf.016abba7227eb74fd8a51d3680260d74.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "76_output_jpg.rf.aca0be5788b3ac99c22c42778a96202a.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "76_output_jpg.rf.c58b15549e282c5553b9f82ba7ad3243.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "76_output_jpg.rf.ed6371ab2c1eb5ecb9224aa3855e8902.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "77flip_output_jpg.rf.c49c308dd899be78e85841e8679bb7c0.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "77_output_jpg.rf.1d3404d8e0701dd59d97c9f138bab81b.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "77_output_jpg.rf.1ebbe1b73070ec8b1974ade86dd9ae14.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "77_output_jpg.rf.3f9acac94fd07e03f6b1da64ab070f48.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "77_output_jpg.rf.5bb738a17d2d3411206ab3014141c834.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "77_output_jpg.rf.6897ca0693cf71a40872b8ba7c4966df.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "77_output_jpg.rf.7824ca531c19f2ed0bcb499642f98563.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "77_output_jpg.rf.a3a578a87141b3939e1d156f63c18d56.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "77_output_jpg.rf.d5617c0812023263df553a38e9f50682.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "7a33372ef3473450_output_jpg.rf.2677b25c24b6ff7b311eb0cf2a9dc93b.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "7a33372ef3473450_output_jpg.rf.3c42cb133cb564c4172ddbee1017035a.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "7a33372ef3473450_output_jpg.rf.55debfc125a164475d97e427ad59706c.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "7a33372ef3473450_output_jpg.rf.f0866cb7d852f78a347159432237eb28.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "7ad8bcc463c2bb36_output_jpg.rf.9598ed4db72234d9757e0f5213dbbf5b.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "7ad8bcc463c2bb36_output_jpg.rf.ef4c86435e2c64b9cddc1f819d4bd35e.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "7e48ed88da8a7066_output_jpg.rf.37a8869b9fc7ba169558e5f8ad03ec14.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "7e48ed88da8a7066_output_jpg.rf.c07c0f88d031b3dc8e9366b4814869b8.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "7e48ed88da8a7066_output_jpg.rf.c3cc47d1da7f2aa30f41631e1cd770b0.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "9537255a7688f54b_output_jpg.rf.16cbddfa124d5fe59095db69a1951b4b.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "9537255a7688f54b_output_jpg.rf.229deec67bbbec41219937ac4597cd2b.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "9537255a7688f54b_output_jpg.rf.3ec37c124365cea532a1d3b34db31bbf.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "9537255a7688f54b_output_jpg.rf.458ebe971df178da403d756538f5586c.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "9537255a7688f54b_output_jpg.rf.6b2b2160d5512890595fa5d9f7b45ae6.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "9537255a7688f54b_output_jpg.rf.7bdfbbf8f38641e54da7657ae1c4c364.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "9537255a7688f54b_output_jpg.rf.8cae9e4f49a92f68f06159b926f40a63.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "9537255a7688f54b_output_jpg.rf.9127dd51f6ed8b65b26ec95bfaa68442.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "9537255a7688f54b_output_jpg.rf.9c1f1264fbebcedf326671313b1ddb69.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "9537255a7688f54b_output_jpg.rf.baeb59792e93ca2221b0018e16299961.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "9537255a7688f54b_output_jpg.rf.db267c83ff41f43fc55550d3f0fa1f10.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "9537255a7688f54b_output_jpg.rf.df6f3580692530cffd14a280a8d74709.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "9537255a7688f54b_output_jpg.rf.e38bd6000aeb96491611c76068ddc0bc.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "9_output_jpg.rf.427114a0b3d1530d9bd7ae75f075e0b3.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "9_output_jpg.rf.64526861be9d2c2ae559d6ac2a0289be.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "train",
+      [
+        "9_output_jpg.rf.803b1925be8604c00c3b310b8d29ac24.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "058d115cc296b82c_output_jpg.rf.eb3533fae69ba264f9c0253aea770f9d.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "07cd51784087dd43_output_jpg.rf.2b911f1a228c018093bc5fd396a0c694.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "07cd51784087dd43_output_jpg.rf.bbc3bad7e27bc95f30cccf7e9f9f56b7.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "07cd51784087dd43_output_jpg.rf.cf615dff6c10f86c7a3bb1287a5674ee.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "07cd51784087dd43_output_jpg.rf.d9776f9fea04f2b14c334cd763b6fb9b.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "10c3818cab8eeca1_output_jpg.rf.e6c8da7f8c953a71a5f8411cd418a622.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "10c3818cab8eeca1_output_jpg.rf.e936b173d75866ea6a7916aa3cf03d8f.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "10c3818cab8eeca1_output_jpg.rf.f77784fe4cd4e8703eb35b4977f0b7cf.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "10_output_jpg.rf.3ef2906f512af6809e30d64275bf672c.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "10_output_jpg.rf.948f46cc0aa4380f1c26c76d11152dc6.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "10_output_jpg.rf.df5253d3ff620fcb95ced8e31bb2f3dc.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "13flip_output_jpg.rf.44f40fed70228c6e89b191518140433d.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "13flip_output_jpg.rf.d2276e324e5386f81b63ec1cd1cbf540.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "13_output_jpg.rf.3d403042dfdcb8a3c734d0e705e40fb4.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "13_output_jpg.rf.78a1236daf473e327ec5ab4e28435f92.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "15flip_output_jpg.rf.6e46957646f618b645ebaab009dc4374.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "15flip_output_jpg.rf.f41aa6c1645f880d1b216fab07af72fa.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "15_output_jpg.rf.d3da6881072a3241cf99a6a22e8622e9.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "16flip_output_jpg.rf.1d3bd82bd74af15c5c9bdb5baed5decb.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "16flip_output_jpg.rf.a7e687463e413a1520046a7d227e5ca7.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "16_output_jpg.rf.7c321860abea47829af15cf4ccfd394b.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "16_output_jpg.rf.a46d543bf7416c155ecaaf1b5ddca51e.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "16_output_jpg.rf.d48ef970ab8457783a09ab7c1464956b.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "1db1441c8f1dbfee_output_jpg.rf.0f7f111b435fa3442de057f488f9c73d.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "1db1441c8f1dbfee_output_jpg.rf.51179489bb22339554fc2d229ea0f384.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "21flip_output_jpg.rf.490b703b1ea574c02de4495b8cb502eb.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "21flip_output_jpg.rf.ed388d388df3c31f55c26f5b2ea45f34.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "21_output_jpg.rf.18a1e05ac6dd85e846cd7beaa2344092.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "21_output_jpg.rf.429709e2f6ebbd24f77bc9959fa34119.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "21_output_jpg.rf.4dfb6e5442f8ae4ae0840ff70d8db121.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "21_output_jpg.rf.dc75a68ada2c1cb675e7e656f7d04040.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "22_output_jpg.rf.1322570aff2294905667ac659e74e6fd.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "22_output_jpg.rf.4a04dab7be0c6866dd6d7c682027f4a5.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "24flip_output_jpg.rf.57cbb161004b7c6a2cb008e2219926b3.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "24_output_jpg.rf.2b138e8213f7ecdec925a0d69e1b28ee.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "25-612flip_output_jpg.rf.61e188f72907c80f01c555263226ed2d.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "25-612flip_output_jpg.rf.d3552145255244444a85f7b4014aac98.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "26_output_jpg.rf.e33c51373e989731ecae6e31fa60887a.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "33flip_output_jpg.rf.bc43d36d5e61ff1cb37205ae31e3fda0.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "3_output_jpg.rf.a00f4ef9e269b4377fa2e4e7c959b16f.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "4-22-_jpg.rf.3fc6bbdd8273c84ed2bc297a71ba0021.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "4-22-_jpg.rf.532ba153a7781ae308b39f49859f2def.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "4-42-_jpg.rf.683847c4ef86889820fdeb9706664f4d.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "4-42-_jpg.rf.a550dc7f6a17350bba603e13bf4c5c5f.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "43flip_output_jpg.rf.eb6262555c94f462d1228fad6a8dd546.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "43_output_jpg.rf.11045cd5642519ba0c0f1196e36d18fc.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "43_output_jpg.rf.4a1f511ea34c47deaf8afcc95ecfdaea.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "43_output_jpg.rf.9771cf096b17d5b6b34df1e20ca80f49.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "43_output_jpg.rf.afc880a8609c1406ae07b19ba5ed626d.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "43_output_jpg.rf.b5e266cf4999157b3749432f1bc01b89.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "43_output_jpg.rf.d421d12e5f8e24b77de76c3205e291e8.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "50flip_output_jpg.rf.6769a30fe80a03f3dc297b43fa7e4efc.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "50_output_jpg.rf.77e6b51278a8cb4d85cb995be7a6d4a2.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "50_output_jpg.rf.afaf79bfda0a7fea91a8992d212c948c.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "50_output_jpg.rf.b2f1eb8c7801d3b1cf7b4fdeb03e845a.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "50_output_jpg.rf.d1d80c9a81dfc443043fd16dbe40096b.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "54_output_jpg.rf.d941db68b5ab05ac2d23183d03628702.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "59flipped_output_jpg.rf.21a8fe177c2c0de6f8bd43637d870484.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "67_output_jpg.rf.0103b3ee282c6ca885e39944a3d07209.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "6_output_jpg.rf.9b4287ed1a350edfd774dbb1c976934f.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "77_output_jpg.rf.02a446ef1f967889717ab51872004f65.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "77_output_jpg.rf.0f15f466f12e451add980d755486514f.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "7a33372ef3473450_output_jpg.rf.0ee7037f0d67c4373aac19382c7dd123.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "7ad8bcc463c2bb36_output_jpg.rf.9a2f83641d8be7c929788b30aacde37c.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "9537255a7688f54b_output_jpg.rf.5488c5beaf4af7398314741e247b895b.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "9537255a7688f54b_output_jpg.rf.ce456780d197e96ccfe3cf8e63c73e9f.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "valid",
+      [
+        "9_output_jpg.rf.4909e5deeabe017970d2b50ccc5cf255.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "test",
+      [
+        "0c568786cc09e0a1_output_jpg.rf.b37eb7a4e5f8e8c23e38902c5bd12e47.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "test",
+      [
+        "10_output_jpg.rf.bda35b0928f19e6830a7ecfd337cd75d.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "test",
+      [
+        "13_output_jpg.rf.2141b875003c4cf31054de86e891cca7.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "test",
+      [
+        "16_output_jpg.rf.0b2ad7e48680c32f490a49e959b002ef.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "test",
+      [
+        "20d0638b20f223ab_output_jpg.rf.46e62c041ed684b30bae33be2207dff1.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "test",
+      [
+        "20_output_jpg.rf.8d64719d2122e06f05c025c4b533390f.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "test",
+      [
+        "21flip_output_jpg.rf.75af25d0d5e5cb4e6ece66650765970b.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "test",
+      [
+        "21_output_jpg.rf.fe48066629100674c158989952bf0f28.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "test",
+      [
+        "3_output_jpg.rf.8b38af44669f49c5bd8f08308028da80.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "test",
+      [
+        "4-22-_jpg.rf.58ec59e5bb4d4fee839fbf39ff918d1e.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "test",
+      [
+        "4-42-_jpg.rf.155d4ef59facb898ae82c044274dd9f1.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "test",
+      [
+        "4-42-_jpg.rf.a3b453a73fa794acf4d5aa864863c108.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "test",
+      [
+        "4-42-_jpg.rf.ede7b34148a4541b9c7270e09da00750.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "test",
+      [
+        "50_output_jpg.rf.b46e32ceff17d0600819baa40f668fdf.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "test",
+      [
+        "50_output_jpg.rf.fba6c2de43f316da5b302d61349c36a4.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "test",
+      [
+        "54_output_jpg.rf.0aecd2d76c993e99225d5547c3a9020f.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "test",
+      [
+        "54_output_jpg.rf.858d44231abd87b38a4b69bcf4f694f2.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "test",
+      [
+        "6c21f7c59d756372_output_jpg.rf.8006633e84030142d2c11c786e6a39eb.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "test",
+      [
+        "6_output_jpg.rf.87fb2de458bf36a1a312020d081e0a3c.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "test",
+      [
+        "76_output_jpg.rf.5bf1533d7d05156194a065ba87dab72a.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "test",
+      [
+        "76_output_jpg.rf.8920308565d89e12db8cf8bd4b07107a.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "test",
+      [
+        "77flip_output_jpg.rf.4c6013f9d04345ec8beda0cfec3890a8.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "test",
+      [
+        "77flip_output_jpg.rf.db462459c8ef1b26b1cd86d62469bd33.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "test",
+      [
+        "77_output_jpg.rf.4a8baa97e3de385cb840c034e95f59a8.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "test",
+      [
+        "77_output_jpg.rf.5fb8de321a5e652d97f57368145bd6c9.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "test",
+      [
+        "7a33372ef3473450_output_jpg.rf.32fa1e89dd002c76bb2bab2aa293f9a0.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "test",
+      [
+        "9_output_jpg.rf.7ba26b657ddf2cf4d91d32e29097f34f.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ],
+    [
+      "test",
+      [
+        "9_output_jpg.rf.be4c5dd447823b99a015f44706d4c624.txt",
+        "Line 1: Expected 5 values, got 11"
+      ]
+    ]
+  ],
+  "missing_labels": [],
+  "class_distribution": {
+    "24": {
+      "name": "tree",
+      "count": 639
+    },
+    "6": {
+      "name": "car",
+      "count": 1327
+    },
+    "16": {
+      "name": "pole",
+      "count": 505
+    },
+    "11": {
+      "name": "fence barrier",
+      "count": 134
+    },
+    "4": {
+      "name": "bollard",
+      "count": 1918
+    },
+    "8": {
+      "name": "crosswalk",
+      "count": 1287
+    },
+    "15": {
+      "name": "person",
+      "count": 999
+    },
+    "14": {
+      "name": "parking meter",
+      "count": 178
+    },
+    "13": {
+      "name": "motorcycle",
+      "count": 283
+    },
+    "22": {
+      "name": "traffic light",
+      "count": 942
+    },
+    "1": {
+      "name": "bench",
+      "count": 233
+    },
+    "18": {
+      "name": "scooter",
+      "count": 588
+    },
+    "23": {
+      "name": "trash bin",
+      "count": 640
+    },
+    "5": {
+      "name": "bus",
+      "count": 158
+    },
+    "25": {
+      "name": "truck",
+      "count": 77
+    },
+    "21": {
+      "name": "traffic cone",
+      "count": 180
+    },
+    "2": {
+      "name": "bicycle",
+      "count": 197
+    },
+    "12": {
+      "name": "fire hydrant",
+      "count": 170
+    },
+    "26": {
+      "name": "up stairs",
+      "count": 43
+    },
+    "20": {
+      "name": "stop sign",
+      "count": 116
+    },
+    "0": {
+      "name": "bad road",
+      "count": 389
+    },
+    "17": {
+      "name": "pothole",
+      "count": 1066
+    },
+    "10": {
+      "name": "down stairs",
+      "count": 36
+    },
+    "19": {
+      "name": "stairs",
+      "count": 51
+    },
+    "9": {
+      "name": "dog",
+      "count": 52
+    },
+    "7": {
+      "name": "cat",
+      "count": 49
+    },
+    "3": {
+      "name": "bird",
+      "count": 49
+    }
+  },
+  "issues": [
+    "Too many annotation errors: 299 (max: 100)"
+  ],
+  "passed": false
+}

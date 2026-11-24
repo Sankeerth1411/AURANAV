@@ -1,0 +1,194 @@
+
+# AURANAV Configuration File
+# Smart Glasses AI System for Visual Assistance
+
+# Roboflow Dataset Configuration
+roboflow:
+  workspace: "sankeerth-rajoli-sankeerth"
+  project: "merge_final-iixxm-huf72"
+  version: 2
+  format: "yolov8"
+  expected_classes: 27
+
+# Project Paths
+paths:
+  raw_dataset: "data/raw"
+  prepared_dataset: "data/prepared"
+  artifacts: "artifacts"
+  weights: "artifacts/weights"
+  logs: "artifacts/logs"
+  test_results: "artifacts/test_results"
+
+# Model Configuration
+model:
+  architecture: "yolov8n"
+  pretrained: true
+  input_size: 640
+
+# Training Configuration
+training:
+  epochs: 30
+  batch_size: 4
+  patience: 10
+  device: "auto"
+  workers: 2
+  save_period: 10
+  amp: true
+
+  # Data Augmentation
+  augmentation:
+    hsv_h: 0.015
+    hsv_s: 0.7
+    hsv_v: 0.4
+    degrees: 0.0
+    translate: 0.1
+    scale: 0.5
+    shear: 0.0
+    perspective: 0.0
+    flipud: 0.0
+    fliplr: 0.5
+    mosaic: 1.0
+    mixup: 0.0
+
+# Inference Configuration
+inference:
+  confidence_threshold: 0.25
+  iou_threshold: 0.45
+  max_detections: 100
+  device: "cpu"
+  half_precision: false
+
+# Camera Configuration
+camera:
+  source: 0
+  width: 640
+  height: 480
+  fps: 30
+  buffer_size: 1
+
+# Object Tracking Configuration
+tracking:
+  enabled: true
+  max_age: 30
+  min_hits: 3
+  iou_threshold: 0.3
+
+# Hazard Scoring Configuration
+hazard:
+  # Class-based hazard severity (0-100)
+  # Higher score = more dangerous
+  class_severity:
+    pothole: 90
+    "bad road": 85
+    vehicle: 80
+    car: 80
+    truck: 80
+    bus: 80
+    motorcycle: 75
+    bicycle: 70
+    scooter: 70
+    person: 70
+    dog: 65
+    "down stairs": 95
+    "up stairs": 80
+    stairs: 80
+    pole: 75
+    tree: 70
+    "fence barrier": 70
+    bollard: 75
+    "fire hydrant": 60
+    "parking meter": 50
+    "traffic light": 40
+    "stop sign": 40
+    "traffic cone": 70
+    crosswalk: 30
+    bench: 50
+    "trash bin": 60
+    bird: 20
+    cat: 40
+
+  # Position-based multipliers
+  position:
+    center_zone_width: 0.4
+    center_multiplier: 1.5
+    side_multiplier: 0.8
+
+  # Size-based scoring
+  size:
+    small_threshold: 0.05
+    medium_threshold: 0.15
+    large_threshold: 0.30
+    small_multiplier: 0.5
+    medium_multiplier: 1.0
+    large_multiplier: 1.5
+    xlarge_multiplier: 2.0
+
+  # Movement-based scoring
+  movement:
+    approaching_multiplier: 1.8
+    receding_multiplier: 0.6
+    stationary_multiplier: 1.0
+    velocity_threshold: 0.02
+
+  # Alert Thresholds
+  alert:
+    critical_threshold: 70
+    warning_threshold: 50
+    info_threshold: 30
+
+# Audio Warning Configuration
+audio:
+  enabled: true
+  engine: "pyttsx3"
+  rate: 180
+  volume: 1.0
+
+  # Alert Cooldown (seconds)
+  cooldown:
+    same_object: 5.0
+    same_class: 3.0
+    any_alert: 1.0
+
+  # Alert Templates
+  templates:
+    critical: "{class_name} ahead"
+    warning: "{class_name} on your {direction}"
+    info: "{class_name} nearby"
+
+  # Direction Mapping
+  directions:
+    left_threshold: 0.33
+    right_threshold: 0.67
+    left_label: "left"
+    center_label: "ahead"
+    right_label: "right"
+
+# Dataset Validation Configuration
+validation:
+  min_images_per_split:
+    train: 100
+    valid: 20
+    test: 20
+  max_annotation_errors: 100
+  required_files:
+    - "data.yaml"
+    - "train/images"
+    - "train/labels"
+    - "valid/images"
+    - "valid/labels"
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "artifacts/logs/auranav.log"
+  console: true
+
+# Raspberry Pi 5 Deployment (Optional)
+raspberry_pi:
+  enabled: false
+  model_path: "artifacts/weights/auranav_best_int8.tflite"
+  camera_module: "picamera2"
+  resolution: [640, 480]
+  framerate: 30
+  inference_threads: 4

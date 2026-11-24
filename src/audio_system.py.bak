@@ -1,0 +1,238 @@
+#!/usr/bin/env python3
+"""
+AURANAV - Audio Warning System
+Text-to-speech alerts for hazards
+"""
+
+import sys
+import logging
+import threading
+from pathlib import Path
+from typing import Optional
+from queue import Queue
+
+sys.path.append(str(Path(__file__).parent.parent))
+from src.config_loader import get_config
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
+
+class AudioWarningSystem:
+    """Text-to-speech warning system"""
+
+    def __init__(self):
+        """Initialize audio system"""
+        self.config = get_config()
+        self.audio_config = self.config.audio_config
+
+        self.enabled = self.audio_config.get('enabled', True)
+        self.engine_type = self.audio_config.get('engine', 'pyttsx3')
+
+        # Alert queue for async processing
+        self.alert_queue = Queue()
+        self.worker_thread = None
+        self.running = False
+
+        # Initialize TTS engine
+        if self.enabled:
+            self._init_engine()
+            self._start_worker()
+        else:
+            logger.info("Audio warnings disabled in config")
+
+    def _init_engine(self):
+        """Initialize text-to-speech engine"""
+        try:
+            if self.engine_type == 'pyttsx3':
+                import pyttsx3
+                self.engine = pyttsx3.init()
+
+                # Set properties
+                rate = self.audio_config.get('rate', 180)
+                volume = self.audio_config.get('volume', 1.0)
+
+                self.engine.setProperty('rate', rate)
+                self.engine.setProperty('volume', volume)
+
+                logger.info(f"Audio engine initialized: pyttsx3 (rate={rate}, volume={volume})")
+
+            elif self.engine_type == 'gtts':
+                # gTTS requires internet, will be initialized per-message
+                logger.info("Audio engine: gTTS (requires internet)")
+
+            else:
+                logger.warning(f"Unknown audio engine: {self.engine_type}, falling back to pyttsx3")
+                import pyttsx3
+                self.engine = pyttsx3.init()
+
+        except Exception as e:
+            logger.error(f"Failed to initialize audio engine: {e}")
+            self.enabled = False
+
+    def _start_worker(self):
+        """Start background worker thread for processing alerts"""
+        self.running = True
+        self.worker_thread = threading.Thread(target=self._worker, daemon=True)
+        self.worker_thread.start()
+        logger.info("Audio worker thread started")
+
+    def _worker(self):
+        """Worker thread that processes alert queue"""
+        while self.running:
+            try:
+                # Get alert from queue (blocking with timeout)
+                alert = self.alert_queue.get(timeout=1.0)
+
+                if alert is None:  # Sentinel to stop
+                    break
+
+                # Speak the message
+                self._speak(alert)
+
+            except Exception as e:
+                if str(e) != '':  # Ignore timeout exceptions
+                    logger.error(f"Worker error: {e}")
+
+    def _speak(self, message: str):
+        """
+        Speak a message using TTS engine
+
+        Args:
+            message: Text to speak
+        """
+        if not self.enabled:
+            return
+
+        try:
+            if self.engine_type == 'pyttsx3':
+                self.engine.say(message)
+                self.engine.runAndWait()
+
+            elif self.engine_type == 'gtts':
+                from gtts import gTTS
+                import pygame
+                import tempfile
+                import os
+
+                # Generate speech
+                tts = gTTS(text=message, lang='en', slow=False)
+
+                # Save to temporary file
+                with tempfile.NamedTemporaryFile(delete=False, suffix='.mp3') as f:
+                    temp_path = f.name
+                    tts.save(temp_path)
+
+                # Play audio
+                pygame.mixer.init()
+                pygame.mixer.music.load(temp_path)
+                pygame.mixer.music.play()
+
+                # Wait for playback to finish
+                while pygame.mixer.music.get_busy():
+                    pygame.time.Clock().tick(10)
+
+                # Cleanup
+                pygame.mixer.quit()
+                os.remove(temp_path)
+
+            logger.info(f"Spoke: '{message}'")
+
+        except Exception as e:
+            logger.error(f"Failed to speak message: {e}")
+
+    def alert(self, message: str, priority: bool = False):
+        """
+        Queue an alert message
+
+        Args:
+            message: Alert text
+            priority: If True, speak immediately (blocking)
+        """
+        if not self.enabled:
+            logger.info(f"[AUDIO DISABLED] {message}")
+            return
+
+        if priority:
+            # Speak immediately (blocking)
+            self._speak(message)
+        else:
+            # Queue for background processing
+            self.alert_queue.put(message)
+
+    def test(self):
+        """Test audio system"""
+        logger.info("Testing audio system...")
+        self.alert("Audio system test. AURANAV is ready.", priority=True)
+
+    def shutdown(self):
+        """Shutdown audio system"""
+        logger.info("Shutting down audio system...")
+        self.running = False
+
+        if self.worker_thread:
+            # Send sentinel to stop worker
+            self.alert_queue.put(None)
+            self.worker_thread.join(timeout=2.0)
+
+        if hasattr(self, 'engine') and self.engine:
+            try:
+                self.engine.stop()
+            except:
+                pass
+
+        logger.info("Audio system shutdown complete")
+
+    def __enter__(self):
+        """Context manager entry"""
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        """Context manager exit"""
+        self.shutdown()
+
+
+def main():
+    """Test audio system"""
+    import argparse
+
+    parser = argparse.ArgumentParser(description='Test AURANAV audio system')
+    parser.add_argument('--message', type=str, default='Testing audio system',
+                       help='Message to speak')
+    parser.add_argument('--test-all', action='store_true',
+                       help='Test all alert types')
+    args = parser.parse_args()
+
+    try:
+        with AudioWarningSystem() as audio:
+            if args.test_all:
+                # Test different alert types
+                test_messages = [
+                    "Pothole ahead",
+                    "Vehicle approaching from the left",
+                    "Obstacle close on your right",
+                    "Person ahead",
+                    "Down stairs ahead"
+                ]
+
+                for msg in test_messages:
+                    logger.info(f"Testing: {msg}")
+                    audio.alert(msg, priority=True)
+                    import time
+                    time.sleep(1.5)
+
+            else:
+                audio.alert(args.message, priority=True)
+
+            logger.info("Audio test completed successfully")
+
+    except Exception as e:
+        logger.error(f"Audio test failed: {e}", exc_info=True)
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()
