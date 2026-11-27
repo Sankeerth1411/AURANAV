@@ -197,7 +197,7 @@ class RealtimeDetector:
             if alert:
                 alerts.append(alert)
                 # Send to audio system
-                self.audio_system.alert(alert.message)
+                self.audio_system.alert(alert.message, priority=(alert.level == 'critical'))
 
         return {
             'detections': detections,
