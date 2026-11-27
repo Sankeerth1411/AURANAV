@@ -68,7 +68,7 @@ class AudioWarningSystem:
             return
 
         self._ready.set()
-        while self.running:
+        while True:
             try:
                 priority, sequence, message = self.alert_queue.get(timeout=0.5)
             except Empty:
@@ -111,6 +111,7 @@ class AudioWarningSystem:
             self.running = False
             self.alert_queue.put((2, next(self._sequence), None))
         self.worker_thread.join(timeout=10.0)
+        self.running = False
         if self.worker_thread.is_alive():
             logger.warning("Speech worker did not stop within 10 seconds")
 
