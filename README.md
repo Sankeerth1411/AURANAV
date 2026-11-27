@@ -1,4 +1,45 @@
-# AURANAV - Smart Glasses AI System for Visual Assistance
+# AURANAV — Smart Glasses AI System for Visual Assistance
+
+> **AURANAV 2.0 development branch:** this repository is an experimental assistive-vision prototype. The primary detector remains the safety-alert source. An optional YOLO-World discovery model is available for research, disabled by default, and kept separate from spoken hazard alerts. See [Safety architecture](docs/SAFETY_ARCHITECTURE.md) and [Open-vocabulary discovery](docs/OPEN_VOCABULARY.md).
+
+## Current verified baseline and limitations
+
+The repository's saved evaluation report records mAP@0.5 of 61.01%, mAP@0.5:0.95 of 41.23%, precision of 63.73%, recall of 58.16%, and approximately 11.13 FPS on the machine used for that benchmark. These are historical evaluation results, not guaranteed live performance. Per-class performance varies and weak obstacle classes need more labelled data.
+
+Bounding-box size is not metric distance. Hazard scores are relative alert-priority heuristics, not calibrated collision probabilities or time-to-collision. The detector cannot recognise every object and the experimental discovery model is not safety validated.
+
+**Safety:** AURANAV is not certified and must not replace a white cane, guide dog, or orientation-and-mobility training. Test only in controlled environments with a sighted supervisor.
+
+## Development-branch improvements
+
+- Class-aware IoU tracking, invalid-box filtering, track confirmation and stale-track expiry.
+- Conservative hazard prioritisation and critical-alert queue priority.
+- Cross-platform offline speech through pyttsx3, subject to the operating system speech backend.
+- Optional prompt-based object discovery, disabled by default and not connected to hazard alerts.
+- Regression tests for tracker and discovery helpers.
+
+---
+
+## Dataset quality audit (new)
+
+Before training on a Roboflow export, run the read-only dataset audit:
+
+```bash
+python src/dataset_audit.py --data path/to/data.yaml --output artifacts/test_results/dataset_audit.json
+```
+
+To make the command return a failing exit code when annotation errors or cross-split duplicate images are found:
+
+```bash
+python src/dataset_audit.py --data path/to/data.yaml --fail-on-errors
+```
+
+The report checks configured split paths, image/label pairing, malformed YOLO rows, class IDs, normalised bounding boxes, class counts and byte-identical images shared across splits. Review its output before training; it does not automatically repair annotations or guarantee dataset quality.
+
+## Legacy project guide
+
+The detailed setup and dataset instructions below are retained from the original project documentation. Some dataset-version notes, class counts, dependency versions and performance expectations may refer to an earlier project state; verify them against the current `config.yaml`, dataset export and evaluation report before relying on them.
+
 
 **Real-time AI-powered obstacle detection and hazard warning system for visually impaired users.**
 

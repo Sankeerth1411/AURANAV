@@ -1,310 +1,173 @@
 #!/usr/bin/env python3
 """
-AURANAV - Object Tracker
-Multi-object tracking using SORT-like algorithm
+AURANAV class-aware multi-object tracker.
+
+Boxes use normalized center format [cx, cy, width, height].
+This lightweight IoU tracker avoids Kalman prediction drift and keeps
+objects of different classes from being associated with one another.
 """
+
+from dataclasses import dataclass, field
+from typing import Dict, List, Tuple
 
 import numpy as np
 from scipy.optimize import linear_sum_assignment
-from filterpy.kalman import KalmanFilter
 
 
-class TrackState:
-    """Track state enumeration"""
-    TENTATIVE = 1
-    CONFIRMED = 2
-    DELETED = 3
-
-
+@dataclass
 class Track:
-    """Single object track"""
+    track_id: int
+    class_id: int
+    class_name: str
+    bbox: np.ndarray
+    confidence: float
+    min_hits: int = 2
+    max_age: int = 8
+    hits: int = 1
+    age: int = 1
+    time_since_update: int = 0
+    confirmed: bool = False
+    bbox_history: List[np.ndarray] = field(default_factory=list)
+    confidence_history: List[float] = field(default_factory=list)
 
-    def __init__(self, detection, track_id, max_age=30, min_hits=3):
-        """
-        Initialize track
-
-        Args:
-            detection: Initial detection (bbox, class_id, confidence)
-            track_id: Unique track ID
-            max_age: Maximum frames to keep without update
-            min_hits: Minimum detections before confirmed
-        """
-        self.track_id = track_id
-        self.class_id = detection['class_id']
-        self.class_name = detection['class_name']
-        self.max_age = max_age
-        self.min_hits = min_hits
-
-        # Initialize Kalman filter for bbox tracking
-        self.kf = self._init_kalman_filter(detection['bbox'])
-
-        # State
-        self.state = TrackState.TENTATIVE
-        self.hits = 1
-        self.age = 0
-        self.time_since_update = 0
-
-        # History
-        self.bbox_history = [detection['bbox']]
-        self.confidence_history = [detection['confidence']]
-
-    def _init_kalman_filter(self, bbox):
-        """Initialize Kalman filter for bbox tracking"""
-        # State: [x, y, w, h, dx, dy, dw, dh]
-        kf = KalmanFilter(dim_x=8, dim_z=4)
-
-        # State transition matrix
-        kf.F = np.array([
-            [1, 0, 0, 0, 1, 0, 0, 0],
-            [0, 1, 0, 0, 0, 1, 0, 0],
-            [0, 0, 1, 0, 0, 0, 1, 0],
-            [0, 0, 0, 1, 0, 0, 0, 1],
-            [0, 0, 0, 0, 1, 0, 0, 0],
-            [0, 0, 0, 0, 0, 1, 0, 0],
-            [0, 0, 0, 0, 0, 0, 1, 0],
-            [0, 0, 0, 0, 0, 0, 0, 1]
-        ])
-
-        # Measurement matrix
-        kf.H = np.array([
-            [1, 0, 0, 0, 0, 0, 0, 0],
-            [0, 1, 0, 0, 0, 0, 0, 0],
-            [0, 0, 1, 0, 0, 0, 0, 0],
-            [0, 0, 0, 1, 0, 0, 0, 0]
-        ])
-
-        # Measurement noise
-        kf.R *= 1.0
-
-        # Process noise
-        kf.Q[-1, -1] *= 0.01
-        kf.Q[4:, 4:] *= 0.01
-
-        # Initial state
-        x, y, w, h = bbox
-        kf.x[:4] = np.array([x, y, w, h]).reshape(4, 1)
-        return kf
+    def __post_init__(self):
+        self.bbox = np.asarray(self.bbox, dtype=float).reshape(4)
+        self.bbox_history.append(self.bbox.copy())
+        self.confidence_history.append(float(self.confidence))
+        self.confirmed = self.hits >= self.min_hits
 
     def predict(self):
-        """Predict next state"""
-        self.kf.predict()
+        # Do not extrapolate boxes without a motion model; mark them stale instead.
         self.age += 1
         self.time_since_update += 1
 
-    def update(self, detection):
-        """
-        Update track with detection
-
-        Args:
-            detection: Detection dictionary
-        """
-        bbox = detection['bbox']
-        self.kf.update(bbox)
-
+    def update(self, detection: Dict):
+        self.bbox = np.asarray(detection["bbox"], dtype=float).reshape(4)
+        self.class_id = int(detection["class_id"])
+        self.class_name = str(detection["class_name"])
+        self.confidence = float(detection["confidence"])
         self.hits += 1
         self.time_since_update = 0
-
-        # Update state
-        if self.state == TrackState.TENTATIVE and self.hits >= self.min_hits:
-            self.state = TrackState.CONFIRMED
-
-        # Store history
-        self.bbox_history.append(bbox)
-        self.confidence_history.append(detection['confidence'])
-
-        # Keep only recent history
-        if len(self.bbox_history) > 30:
-            self.bbox_history = self.bbox_history[-30:]
-            self.confidence_history = self.confidence_history[-30:]
+        self.confirmed = self.hits >= self.min_hits
+        self.bbox_history.append(self.bbox.copy())
+        self.confidence_history.append(self.confidence)
+        self.bbox_history = self.bbox_history[-12:]
+        self.confidence_history = self.confidence_history[-12:]
 
     def get_bbox(self):
-        """Get current bbox from Kalman filter"""
-        return self.kf.x[:4].flatten()
+        return self.bbox.copy()
 
     def get_velocity(self):
-        """Get current velocity from Kalman filter"""
-        return self.kf.x[4:].flatten()
-
-    def is_confirmed(self):
-        """Check if track is confirmed"""
-        return self.state == TrackState.CONFIRMED
-
-    def is_deleted(self):
-        """Check if track should be deleted"""
-        return self.state == TrackState.DELETED
-
-    def mark_deleted(self):
-        """Mark track as deleted"""
-        self.state = TrackState.DELETED
+        if len(self.bbox_history) < 2:
+            return np.zeros(4, dtype=float)
+        return self.bbox_history[-1] - self.bbox_history[-2]
 
     def get_size_change_rate(self):
-        """Get rate of bbox size change (proxy for approaching/receding)"""
         if len(self.bbox_history) < 2:
             return 0.0
-
-        # Compare recent size to older size
-        recent_size = self.bbox_history[-1][2] * self.bbox_history[-1][3]
-        old_size = self.bbox_history[0][2] * self.bbox_history[0][3]
-
-        if old_size == 0:
+        areas = [max(0.0, float(b[2] * b[3])) for b in self.bbox_history[-6:]]
+        if len(areas) < 2 or areas[0] <= 1e-9:
             return 0.0
+        return (areas[-1] - areas[0]) / (areas[0] * (len(areas) - 1))
 
-        # Normalized change per frame
-        frames = len(self.bbox_history)
-        change_rate = (recent_size - old_size) / (old_size * frames)
+    def is_confirmed(self):
+        return self.confirmed
 
-        return change_rate
+    def is_deleted(self):
+        return self.time_since_update > self.max_age
+
+    def mark_deleted(self):
+        self.time_since_update = self.max_age + 1
 
 
 class ObjectTracker:
-    """Multi-object tracker"""
+    """Class-aware IoU tracker with bounded stale-track lifetime."""
 
-    def __init__(self, max_age=30, min_hits=3, iou_threshold=0.3):
-        """
-        Initialize tracker
-
-        Args:
-            max_age: Maximum frames to keep track without detection
-            min_hits: Minimum detections before confirmed
-            iou_threshold: IOU threshold for matching
-        """
-        self.max_age = max_age
-        self.min_hits = min_hits
-        self.iou_threshold = iou_threshold
-
-        self.tracks = []
+    def __init__(self, max_age=8, min_hits=2, iou_threshold=0.3):
+        self.max_age = max(1, int(max_age))
+        self.min_hits = max(1, int(min_hits))
+        self.iou_threshold = float(iou_threshold)
+        self.tracks: List[Track] = []
         self.next_id = 0
 
+    @staticmethod
+    def _valid_detection(detection):
+        try:
+            bbox = np.asarray(detection["bbox"], dtype=float).reshape(4)
+            confidence = float(detection["confidence"])
+            int(detection["class_id"])
+            return (
+                np.all(np.isfinite(bbox))
+                and bbox[2] > 0 and bbox[3] > 0
+                and np.all(bbox[:2] >= 0) and np.all(bbox[:2] <= 1)
+                and np.all(bbox[2:] <= 1)
+                and np.isfinite(confidence) and 0 <= confidence <= 1
+            )
+        except (KeyError, TypeError, ValueError):
+            return False
+
     def update(self, detections):
-        """
-        Update tracker with new detections
-
-        Args:
-            detections: List of detection dictionaries
-
-        Returns:
-            List of confirmed tracks
-        """
-        # Predict all tracks
+        detections = [d for d in detections if self._valid_detection(d)]
         for track in self.tracks:
             track.predict()
 
-        # Match detections to tracks
-        matched_indices, unmatched_detections, unmatched_tracks = \
-            self._match(detections)
-
-        # Update matched tracks
-        for det_idx, track_idx in matched_indices:
+        matches, unmatched_dets, unmatched_tracks = self._match(detections)
+        for det_idx, track_idx in matches:
             self.tracks[track_idx].update(detections[det_idx])
 
-        # Create new tracks for unmatched detections
-        for det_idx in unmatched_detections:
-            self._create_track(detections[det_idx])
+        for det_idx in unmatched_dets:
+            d = detections[det_idx]
+            self.tracks.append(Track(
+                track_id=self.next_id,
+                class_id=int(d["class_id"]),
+                class_name=str(d["class_name"]),
+                bbox=d["bbox"],
+                confidence=float(d["confidence"]),
+                min_hits=self.min_hits,
+                max_age=self.max_age,
+            ))
+            self.next_id += 1
 
-        # Mark old tracks for deletion
-        for track_idx in unmatched_tracks:
-            track = self.tracks[track_idx]
-            if track.time_since_update > self.max_age:
-                track.mark_deleted()
-
-        # Remove deleted tracks
         self.tracks = [t for t in self.tracks if not t.is_deleted()]
-
-        # Return confirmed tracks
-        return [t for t in self.tracks if t.is_confirmed()]
-
-    def _create_track(self, detection):
-        """Create new track"""
-        track = Track(
-            detection,
-            self.next_id,
-            max_age=self.max_age,
-            min_hits=self.min_hits
-        )
-        self.tracks.append(track)
-        self.next_id += 1
+        # Only confirmed, currently observed tracks are exposed to the hazard engine.
+        return [t for t in self.tracks if t.is_confirmed() and t.time_since_update == 0]
 
     def _match(self, detections):
-        """
-        Match detections to tracks using Hungarian algorithm
-
-        Args:
-            detections: List of detections
-
-        Returns:
-            matched_indices: List of (det_idx, track_idx) pairs
-            unmatched_detections: List of detection indices
-            unmatched_tracks: List of track indices
-        """
-        if len(self.tracks) == 0:
+        if not self.tracks:
             return [], list(range(len(detections))), []
-
-        if len(detections) == 0:
+        if not detections:
             return [], [], list(range(len(self.tracks)))
 
-        # Compute IOU cost matrix
-        iou_matrix = np.zeros((len(detections), len(self.tracks)))
+        iou = np.zeros((len(detections), len(self.tracks)), dtype=float)
+        for di, detection in enumerate(detections):
+            for ti, track in enumerate(self.tracks):
+                if int(detection["class_id"]) != track.class_id:
+                    continue
+                iou[di, ti] = self._iou(detection["bbox"], track.get_bbox())
 
-        for d, det in enumerate(detections):
-            for t, track in enumerate(self.tracks):
-                iou_matrix[d, t] = self._iou(det['bbox'], track.get_bbox())
+        rows, cols = linear_sum_assignment(1.0 - iou)
+        matches = []
+        unmatched_dets = set(range(len(detections)))
+        unmatched_tracks = set(range(len(self.tracks)))
+        for di, ti in zip(rows, cols):
+            if iou[di, ti] >= self.iou_threshold:
+                matches.append((int(di), int(ti)))
+                unmatched_dets.discard(int(di))
+                unmatched_tracks.discard(int(ti))
+        return matches, sorted(unmatched_dets), sorted(unmatched_tracks)
 
-        # Convert IOU to cost (higher IOU = lower cost)
-        cost_matrix = 1.0 - iou_matrix
-
-        # Hungarian algorithm
-        det_indices, track_indices = linear_sum_assignment(cost_matrix)
-
-        # Filter matches by IOU threshold
-        matched_indices = []
-        unmatched_detections = list(range(len(detections)))
-        unmatched_tracks = list(range(len(self.tracks)))
-
-        for d, t in zip(det_indices, track_indices):
-            if iou_matrix[d, t] >= self.iou_threshold:
-                matched_indices.append((d, t))
-                unmatched_detections.remove(d)
-                unmatched_tracks.remove(t)
-
-        return matched_indices, unmatched_detections, unmatched_tracks
-
-    def _iou(self, bbox1, bbox2):
-        """
-        Calculate Intersection over Union
-
-        Args:
-            bbox1: [x, y, w, h] in normalized coordinates
-            bbox2: [x, y, w, h] in normalized coordinates
-
-        Returns:
-            IOU score
-        """
-        x1, y1, w1, h1 = bbox1
-        x2, y2, w2, h2 = bbox2
-
-        # Convert to corners
-        x1_min, y1_min = x1 - w1/2, y1 - h1/2
-        x1_max, y1_max = x1 + w1/2, y1 + h1/2
-        x2_min, y2_min = x2 - w2/2, y2 - h2/2
-        x2_max, y2_max = x2 + w2/2, y2 + h2/2
-
-        # Intersection
-        x_inter_min = max(x1_min, x2_min)
-        y_inter_min = max(y1_min, y2_min)
-        x_inter_max = min(x1_max, x2_max)
-        y_inter_max = min(y1_max, y2_max)
-
-        if x_inter_max < x_inter_min or y_inter_max < y_inter_min:
+    @staticmethod
+    def _iou(bbox1, bbox2):
+        a = np.asarray(bbox1, dtype=float).reshape(4)
+        b = np.asarray(bbox2, dtype=float).reshape(4)
+        if not np.all(np.isfinite(a)) or not np.all(np.isfinite(b)):
             return 0.0
-
-        inter_area = (x_inter_max - x_inter_min) * (y_inter_max - y_inter_min)
-
-        # Union
-        area1 = w1 * h1
-        area2 = w2 * h2
-        union_area = area1 + area2 - inter_area
-
-        if union_area == 0:
-            return 0.0
-
-        return inter_area / union_area
+        ax1, ay1 = a[0] - a[2] / 2, a[1] - a[3] / 2
+        ax2, ay2 = a[0] + a[2] / 2, a[1] + a[3] / 2
+        bx1, by1 = b[0] - b[2] / 2, b[1] - b[3] / 2
+        bx2, by2 = b[0] + b[2] / 2, b[1] + b[3] / 2
+        iw = max(0.0, min(ax2, bx2) - max(ax1, bx1))
+        ih = max(0.0, min(ay2, by2) - max(ay1, by1))
+        intersection = iw * ih
+        union = max(0.0, a[2] * a[3]) + max(0.0, b[2] * b[3]) - intersection
+        return intersection / union if union > 1e-12 else 0.0

@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 """
-AURANAV - Hazard Scoring Engine
-Intelligent risk assessment for detected objects
+AURANAV hazard prioritisation engine.
+
+Important: image-box size is only a visual proximity cue. It is not a
+metric distance, calibrated depth, or a collision-time estimate. Use a
+validated depth sensor for metric distance and validate thresholds with
+real users before any mobility deployment.
 """
 
 import sys
@@ -18,336 +22,188 @@ from src.config_loader import get_config
 
 @dataclass
 class HazardAlert:
-    """Hazard alert information"""
     track_id: int
     class_name: str
     score: float
-    level: str  # 'critical', 'warning', 'info'
-    direction: str  # 'left', 'ahead', 'right'
+    level: str
+    direction: str
     message: str
     timestamp: float
 
 
 class HazardScorer:
-    """Score hazard risk of detected objects"""
+    """Rank currently observed objects by conservative visual hazard cues."""
 
     def __init__(self):
-        """Initialize hazard scorer"""
         self.config = get_config()
         self.hazard_config = self.config.hazard_config
-
-        # Alert history for cooldown management
-        self.last_alert_time = {}  # track_id -> timestamp
-        self.last_class_alert = {}  # class_name -> timestamp
+        self.last_alert_time = {}
+        self.last_class_alert = {}
         self.last_any_alert = 0.0
 
+    @staticmethod
+    def _safe_bbox(track):
+        try:
+            bbox = np.asarray(track.get_bbox(), dtype=float).reshape(4)
+            if not np.all(np.isfinite(bbox)) or bbox[2] <= 0 or bbox[3] <= 0:
+                return None
+            return bbox
+        except (AttributeError, TypeError, ValueError):
+            return None
+
     def score_track(self, track, frame_width: int, frame_height: int) -> float:
-        """
-        Compute hazard score for a tracked object
+        bbox = self._safe_bbox(track)
+        if bbox is None:
+            return 0.0
 
-        Args:
-            track: Track object
-            frame_width: Frame width in pixels
-            frame_height: Frame height in pixels
+        severity = self._get_class_severity(track.class_name)
+        confidence_values = getattr(track, "confidence_history", [])
+        confidence = float(np.mean(confidence_values[-5:])) if confidence_values else 0.5
+        confidence = float(np.clip(confidence, 0.0, 1.0))
 
-        Returns:
-            Hazard score (0-100)
-        """
-        # Base severity from class
-        base_score = self._get_class_severity(track.class_name)
+        # Normalized visual cues only. No metric distance is inferred.
+        cx, cy, width, height = bbox
+        area = float(np.clip(width * height, 0.0, 1.0))
+        size_factor = self._get_size_multiplier(bbox)
+        position_factor = self._get_position_multiplier(bbox, frame_width, frame_height)
+        bottom_factor = 1.0 + 0.25 * float(np.clip((cy + height / 2) - 0.55, 0.0, 0.45)) / 0.45
+        movement_factor = self._get_movement_multiplier(track)
 
-        # Position multiplier
-        bbox = track.get_bbox()
-        position_mult = self._get_position_multiplier(bbox, frame_width, frame_height)
-
-        # Size multiplier (proxy for proximity)
-        size_mult = self._get_size_multiplier(bbox)
-
-        # Movement multiplier
-        movement_mult = self._get_movement_multiplier(track)
-
-        # Confidence factor
-        avg_confidence = np.mean(track.confidence_history[-5:])  # Last 5 detections
-        confidence_mult = 0.5 + (avg_confidence * 0.5)  # Range: 0.5 - 1.0
-
-        # Compute final score
-        score = base_score * position_mult * size_mult * movement_mult * confidence_mult
-
-        # Clamp to valid range
-        score = np.clip(score, 0, 100)
-
-        return float(score)
+        # Combine factors, then clamp. A high score means "prioritise this cue",
+        # not a calibrated probability of collision.
+        score = severity * position_factor * size_factor * bottom_factor * movement_factor
+        score *= 0.65 + 0.35 * confidence
+        return float(np.clip(score, 0.0, 100.0))
 
     def _get_class_severity(self, class_name: str) -> float:
-        """Get base severity score for class"""
-        severity_map = self.hazard_config['class_severity']
-
-        # Direct match
-        if class_name in severity_map:
-            return float(severity_map[class_name])
-
-        # Check for vehicle classes
-        vehicle_classes = ['car', 'truck', 'bus']
-        if class_name in vehicle_classes:
-            return float(severity_map.get('vehicle', 80))
-
-        # Default severity
-        return 50.0
+        severity_map = self.hazard_config.get("class_severity", {})
+        name = str(class_name).strip().lower()
+        if name in severity_map:
+            return float(severity_map[name])
+        if name in {"car", "truck", "bus", "van", "vehicle"}:
+            return float(severity_map.get("vehicle", 80))
+        # Unknown classes should be noticed, but not automatically treated as
+        # an imminent danger. Their risk also depends on position and size.
+        return 45.0
 
     def _get_position_multiplier(self, bbox, frame_width: int, frame_height: int) -> float:
-        """
-        Get position-based multiplier
-
-        Center path is most critical for walking
-        """
-        x_center = bbox[0]  # Normalized x coordinate
-
-        position_config = self.hazard_config['position']
-        center_width = position_config['center_zone_width']
-        center_mult = position_config['center_multiplier']
-        side_mult = position_config['side_multiplier']
-
-        # Check if in center zone
-        center_left = 0.5 - center_width / 2
-        center_right = 0.5 + center_width / 2
-
-        if center_left <= x_center <= center_right:
-            return center_mult
-        else:
-            return side_mult
+        cx = float(bbox[0])
+        cfg = self.hazard_config.get("position", {})
+        center_width = float(cfg.get("center_zone_width", 0.4))
+        center_mult = float(cfg.get("center_multiplier", 1.4))
+        side_mult = float(cfg.get("side_multiplier", 0.8))
+        left, right = 0.5 - center_width / 2, 0.5 + center_width / 2
+        return center_mult if left <= cx <= right else side_mult
 
     def _get_size_multiplier(self, bbox) -> float:
-        """
-        Get size-based multiplier (proxy for proximity)
-
-        Larger bbox = closer = more dangerous
-        Note: This is NOT exact distance, just relative proximity
-        """
-        # Compute bbox area (normalized)
-        width, height = bbox[2], bbox[3]
-        area = width * height
-
-        size_config = self.hazard_config['size']
-
-        if area >= size_config['large_threshold']:
-            return size_config['xlarge_multiplier']
-        elif area >= size_config['medium_threshold']:
-            return size_config['large_multiplier']
-        elif area >= size_config['small_threshold']:
-            return size_config['medium_multiplier']
-        else:
-            return size_config['small_multiplier']
+        area = float(np.clip(bbox[2] * bbox[3], 0.0, 1.0))
+        cfg = self.hazard_config.get("size", {})
+        if area >= float(cfg.get("large_threshold", 0.30)):
+            return float(cfg.get("xlarge_multiplier", 2.0))
+        if area >= float(cfg.get("medium_threshold", 0.15)):
+            return float(cfg.get("large_multiplier", 1.5))
+        if area >= float(cfg.get("small_threshold", 0.05)):
+            return float(cfg.get("medium_multiplier", 1.0))
+        return float(cfg.get("small_multiplier", 0.5))
 
     def _get_movement_multiplier(self, track) -> float:
-        """
-        Get movement-based multiplier
-
-        Approaching objects are more dangerous
-        """
-        size_change_rate = track.get_size_change_rate()
-
-        movement_config = self.hazard_config['movement']
-        velocity_threshold = movement_config['velocity_threshold']
-
-        if size_change_rate > velocity_threshold:
-            # Object getting larger = approaching
-            return movement_config['approaching_multiplier']
-        elif size_change_rate < -velocity_threshold:
-            # Object getting smaller = receding
-            return movement_config['receding_multiplier']
-        else:
-            # Stationary or slow movement
-            return movement_config['stationary_multiplier']
+        cfg = self.hazard_config.get("movement", {})
+        rate = 0.0
+        try:
+            rate = float(track.get_size_change_rate())
+        except (AttributeError, TypeError, ValueError):
+            pass
+        threshold = float(cfg.get("velocity_threshold", 0.02))
+        if rate > threshold:
+            return float(cfg.get("approaching_multiplier", 1.4))
+        if rate < -threshold:
+            return float(cfg.get("receding_multiplier", 0.8))
+        return float(cfg.get("stationary_multiplier", 1.0))
 
     def get_direction(self, bbox) -> str:
-        """
-        Get direction label based on bbox position
+        cx = float(bbox[0])
+        cfg = self.config.audio_config.get("directions", {})
+        left = float(cfg.get("left_threshold", 0.33))
+        right = float(cfg.get("right_threshold", 0.67))
+        if cx < left:
+            return str(cfg.get("left_label", "left"))
+        if cx > right:
+            return str(cfg.get("right_label", "right"))
+        return str(cfg.get("center_label", "ahead"))
 
-        Args:
-            bbox: Bounding box [x, y, w, h] in normalized coordinates
+    def should_alert(self, track_id: int, class_name: str, level: str = "warning") -> bool:
+        now = time.monotonic()
+        cooldown = self.config.audio_config.get("cooldown", {})
+        track_wait = float(cooldown.get("same_object", 3.0))
+        class_wait = float(cooldown.get("same_class", 2.0))
+        global_wait = float(cooldown.get("any_alert", 0.7))
 
-        Returns:
-            Direction string: 'left', 'ahead', 'right'
-        """
-        x_center = bbox[0]
-
-        direction_config = self.hazard_config['alert']['directions'] if 'directions' in self.hazard_config['alert'] else self.config.audio_config['directions']
-
-        left_threshold = direction_config['left_threshold']
-        right_threshold = direction_config['right_threshold']
-
-        if x_center < left_threshold:
-            return direction_config['left_label']
-        elif x_center > right_threshold:
-            return direction_config['right_label']
-        else:
-            return direction_config['center_label']
-
-    def should_alert(self, track_id: int, class_name: str) -> bool:
-        """
-        Check if alert should be issued based on cooldown rules
-
-        Args:
-            track_id: Track ID
-            class_name: Object class name
-
-        Returns:
-            True if alert should be issued
-        """
-        current_time = time.time()
-
-        audio_config = self.config.audio_config
-        cooldown_config = audio_config['cooldown']
-
-        # Check same object cooldown
-        if track_id in self.last_alert_time:
-            elapsed = current_time - self.last_alert_time[track_id]
-            if elapsed < cooldown_config['same_object']:
-                return False
-
-        # Check same class cooldown
-        if class_name in self.last_class_alert:
-            elapsed = current_time - self.last_class_alert[class_name]
-            if elapsed < cooldown_config['same_class']:
-                return False
-
-        # Check any alert cooldown
-        elapsed = current_time - self.last_any_alert
-        if elapsed < cooldown_config['any_alert']:
+        if now - self.last_alert_time.get(track_id, 0.0) < track_wait:
             return False
-
+        if now - self.last_class_alert.get(class_name, 0.0) < class_wait:
+            return False
+        # Critical alerts are allowed to bypass the global throttle so a lower
+        # priority message cannot suppress an urgent stair/vehicle warning.
+        if level != "critical" and now - self.last_any_alert < global_wait:
+            return False
         return True
 
     def record_alert(self, track_id: int, class_name: str):
-        """Record that an alert was issued"""
-        current_time = time.time()
-        self.last_alert_time[track_id] = current_time
-        self.last_class_alert[class_name] = current_time
-        self.last_any_alert = current_time
+        now = time.monotonic()
+        self.last_alert_time[track_id] = now
+        self.last_class_alert[class_name] = now
+        self.last_any_alert = now
 
     def create_alert(self, track, score: float, frame_width: int, frame_height: int) -> Optional[HazardAlert]:
-        """
-        Create hazard alert if score warrants it
-
-        Args:
-            track: Track object
-            score: Hazard score
-            frame_width: Frame width
-            frame_height: Frame height
-
-        Returns:
-            HazardAlert if alert should be issued, None otherwise
-        """
-        alert_config = self.hazard_config['alert']
-
-        # Determine alert level
-        if score >= alert_config['critical_threshold']:
-            level = 'critical'
-        elif score >= alert_config['warning_threshold']:
-            level = 'warning'
-        elif score >= alert_config['info_threshold']:
-            level = 'info'
+        thresholds = self.hazard_config.get("alert", {})
+        if score >= float(thresholds.get("critical_threshold", 70)):
+            level = "critical"
+        elif score >= float(thresholds.get("warning_threshold", 50)):
+            level = "warning"
+        elif score >= float(thresholds.get("info_threshold", 30)):
+            level = "info"
         else:
-            return None  # Score too low
-
-        # Check cooldown
-        if not self.should_alert(track.track_id, track.class_name):
             return None
 
-        # Get direction
-        bbox = track.get_bbox()
+        if not self.should_alert(track.track_id, track.class_name, level):
+            return None
+
+        bbox = self._safe_bbox(track)
+        if bbox is None:
+            return None
         direction = self.get_direction(bbox)
+        templates = self.config.audio_config.get("templates", {})
+        template = templates.get(level, "{class_name} on your {direction}")
+        message = template.format(class_name=track.class_name, direction=direction)
 
-        # Generate message
-        message = self._generate_message(track.class_name, direction, level)
-
-        # Create alert
         alert = HazardAlert(
-            track_id=track.track_id,
-            class_name=track.class_name,
-            score=score,
+            track_id=int(track.track_id),
+            class_name=str(track.class_name),
+            score=float(score),
             level=level,
             direction=direction,
             message=message,
-            timestamp=time.time()
+            timestamp=time.time(),
         )
-
-        # Record alert
         self.record_alert(track.track_id, track.class_name)
-
         return alert
 
-    def _generate_message(self, class_name: str, direction: str, level: str) -> str:
-        """
-        Generate audio alert message
-
-        Args:
-            class_name: Object class
-            direction: Direction string
-            level: Alert level
-
-        Returns:
-            Alert message string
-        """
-        audio_config = self.config.audio_config
-        templates = audio_config['templates']
-
-        template = templates.get(level, templates['warning'])
-
-        # Format message
-        message = template.format(
-            class_name=class_name,
-            direction=direction
-        )
-
-        return message
-
     def score_all_tracks(self, tracks: List, frame_width: int, frame_height: int) -> List[Dict]:
-        """
-        Score all tracks and return sorted by risk
-
-        Args:
-            tracks: List of Track objects
-            frame_width: Frame width
-            frame_height: Frame height
-
-        Returns:
-            List of dicts with track info and scores, sorted by score (high to low)
-        """
-        scored_tracks = []
-
+        scored = []
         for track in tracks:
             score = self.score_track(track, frame_width, frame_height)
-
-            scored_tracks.append({
-                'track': track,
-                'score': score,
-                'direction': self.get_direction(track.get_bbox())
+            scored.append({
+                "track": track,
+                "score": score,
+                "direction": self.get_direction(track.get_bbox()),
             })
-
-        # Sort by score descending
-        scored_tracks.sort(key=lambda x: x['score'], reverse=True)
-
-        return scored_tracks
+        return sorted(scored, key=lambda item: item["score"], reverse=True)
 
 
 if __name__ == "__main__":
-    # Test hazard scorer
     config = get_config()
     scorer = HazardScorer()
-
-    print("Hazard Scorer Initialized")
-    print("\nClass Severity Map:")
-    for class_name, severity in config.hazard_config['class_severity'].items():
-        print(f"  {class_name:20s}: {severity:3.0f}")
-
-    print("\nPosition Multipliers:")
-    print(f"  Center: {config.hazard_config['position']['center_multiplier']}")
-    print(f"  Side:   {config.hazard_config['position']['side_multiplier']}")
-
-    print("\nSize Multipliers:")
-    size_config = config.hazard_config['size']
-    print(f"  Small:  {size_config['small_multiplier']}")
-    print(f"  Medium: {size_config['medium_multiplier']}")
-    print(f"  Large:  {size_config['large_multiplier']}")
-    print(f"  XLarge: {size_config['xlarge_multiplier']}")
+    print("AURANAV hazard prioritisation ready")
+    print("Scores are relative visual priorities, not collision probabilities or distances.")
+    for name, severity in config.hazard_config.get("class_severity", {}).items():
+        print(f"  {name:20s}: {severity:3.0f}")

@@ -48,6 +48,18 @@ class RealtimeDetector:
         self.model = self._load_model()
         self.class_names = self.model.names
 
+        # Optional secondary discovery model. It is deliberately not connected
+        # to tracking or spoken hazard alerts until validated independently.
+        open_vocab_config = self.config.get('open_vocabulary', default={}) or {}
+        ov_device = open_vocab_config.get('device', self.config.inference_config.get('device', 'cpu'))
+        if ov_device == 'auto':
+            import torch
+            ov_device = '0' if torch.cuda.is_available() else 'cpu'
+        from src.open_vocabulary import OpenVocabularyDiscovery
+        self.open_vocabulary = OpenVocabularyDiscovery(open_vocab_config, device=ov_device)
+        self.discovery_interval = max(1, int(open_vocab_config.get('every_n_frames', 10)))
+        self.discovery_frame_counter = 0
+
         # Initialize components
         self.tracker = self._init_tracker()
         self.hazard_scorer = HazardScorer()
@@ -165,10 +177,19 @@ class RealtimeDetector:
         )[0]
 
         inference_time = time.time() - inference_start
-        self.inference_times.append(inference_time)
 
-        # Convert detections to normalized format
+        # Convert primary detector outputs to normalized format
         detections = self._parse_detections(results)
+
+        # Run optional open-vocabulary discovery intermittently to limit CPU load.
+        # These candidates are shown separately and do not trigger audio alerts.
+        self.discovery_frame_counter += 1
+        discovery_detections = []
+        if (
+            self.open_vocabulary.available
+            and self.discovery_frame_counter % self.discovery_interval == 0
+        ):
+            discovery_detections = self.open_vocabulary.predict(frame, detections)
 
         # Update tracker
         if self.tracker:
@@ -197,14 +218,19 @@ class RealtimeDetector:
             if alert:
                 alerts.append(alert)
                 # Send to audio system
-                self.audio_system.alert(alert.message)
+                self.audio_system.alert(alert.message, priority=(alert.level == 'critical'))
+
+        processing_time = time.time() - inference_start
+        self.inference_times.append(processing_time)
 
         return {
             'detections': detections,
             'tracks': tracks,
             'scored_tracks': scored_tracks,
             'alerts': alerts,
-            'inference_time': inference_time
+            'discovery_detections': discovery_detections,
+            'inference_time': inference_time,
+            'processing_time': processing_time
         }
 
     def _parse_detections(self, results) -> List[Dict]:
@@ -311,6 +337,17 @@ class RealtimeDetector:
                 (x1, max(y1 - 5, 20)),
                 cv2.FONT_HERSHEY_SIMPLEX,
                 0.6, color, 2
+            )
+
+        # Draw discovery candidates distinctly. They are informational only:
+        # no tracker state, hazard score, or spoken warning is generated.
+        for candidate in results.get('discovery_detections', []):
+            x1, y1, x2, y2 = candidate['bbox_pixels']
+            cv2.rectangle(vis_frame, (x1, y1), (x2, y2), (255, 0, 255), 2)
+            label = f"DISCOVERY {candidate['class_name']} {candidate['confidence']:.2f}"
+            cv2.putText(
+                vis_frame, label, (x1, max(y1 - 5, 20)),
+                cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 255), 2
             )
 
         # Draw stats
