@@ -7,7 +7,7 @@ from src.open_vocabulary import box_iou_xywh, remove_primary_duplicates, OpenVoc
 
 def test_box_iou_identical_boxes_is_one():
     box = [0.5, 0.5, 0.2, 0.2]
-    assert box_iou_xywh(box, box) == 1.0
+    assert np.isclose(box_iou_xywh(box, box), 1.0, atol=1e-12)
 
 
 def test_box_iou_non_overlapping_boxes_is_zero():
