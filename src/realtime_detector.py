@@ -177,7 +177,6 @@ class RealtimeDetector:
         )[0]
 
         inference_time = time.time() - inference_start
-        self.inference_times.append(inference_time)
 
         # Convert primary detector outputs to normalized format
         detections = self._parse_detections(results)
@@ -221,13 +220,17 @@ class RealtimeDetector:
                 # Send to audio system
                 self.audio_system.alert(alert.message, priority=(alert.level == 'critical'))
 
+        processing_time = time.time() - inference_start
+        self.inference_times.append(processing_time)
+
         return {
             'detections': detections,
             'tracks': tracks,
             'scored_tracks': scored_tracks,
             'alerts': alerts,
             'discovery_detections': discovery_detections,
-            'inference_time': inference_time
+            'inference_time': inference_time,
+            'processing_time': processing_time
         }
 
     def _parse_detections(self, results) -> List[Dict]:
