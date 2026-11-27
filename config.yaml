@@ -161,3 +161,36 @@ raspberry_pi:
   resolution: [640, 480]
   framerate: 30
   inference_threads: 4
+
+# Optional secondary discovery model. Disabled by default because it adds
+# latency and has not yet been safety-validated on the AURANAV dataset.
+open_vocabulary:
+  enabled: false
+  weights: "yolov8s-worldv2.pt"
+  device: "cpu"
+  every_n_frames: 10
+  image_size: 416
+  confidence_threshold: 0.25
+  max_detections: 30
+  primary_dedup_iou: 0.55
+  classes:
+    - "open drain"
+    - "manhole"
+    - "broken pavement"
+    - "uneven pavement"
+    - "curb"
+    - "road barrier"
+    - "construction debris"
+    - "fallen tree branch"
+    - "electric pole"
+    - "parked vehicle"
+    - "moving vehicle"
+    - "pedestrian"
+    - "bicycle"
+    - "motorcycle"
+    - "staircase"
+    - "step"
+    - "ramp"
+    - "glass door"
+    - "low hanging obstacle"
+    - "overhead sign"
