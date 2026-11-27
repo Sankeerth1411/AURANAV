@@ -20,6 +20,22 @@ Bounding-box size is not metric distance. Hazard scores are relative alert-prior
 
 ---
 
+## Dataset quality audit (new)
+
+Before training on a Roboflow export, run the read-only dataset audit:
+
+```bash
+python src/dataset_audit.py --data path/to/data.yaml --output artifacts/test_results/dataset_audit.json
+```
+
+To make the command return a failing exit code when annotation errors or cross-split duplicate images are found:
+
+```bash
+python src/dataset_audit.py --data path/to/data.yaml --fail-on-errors
+```
+
+The report checks configured split paths, image/label pairing, malformed YOLO rows, class IDs, normalised bounding boxes, class counts and byte-identical images shared across splits. Review its output before training; it does not automatically repair annotations or guarantee dataset quality.
+
 ## Legacy project guide
 
 The detailed setup and dataset instructions below are retained from the original project documentation. Some dataset-version notes, class counts, dependency versions and performance expectations may refer to an earlier project state; verify them against the current `config.yaml`, dataset export and evaluation report before relying on them.
